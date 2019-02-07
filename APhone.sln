@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APhoneLibrary", "APhoneLibrary\APhoneLibrary.csproj", "{83F61F2A-6535-4CA7-A433-918B893316D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APhoneTestProject", "APhoneTestProject\APhoneTestProject.csproj", "{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83F61F2A-6535-4CA7-A433-918B893316D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F61F2A-6535-4CA7-A433-918B893316D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F61F2A-6535-4CA7-A433-918B893316D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F61F2A-6535-4CA7-A433-918B893316D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23C3C2BB-4E7B-4AF2-B0E2-70B3A808FB9A}
+	EndGlobalSection
+EndGlobal
