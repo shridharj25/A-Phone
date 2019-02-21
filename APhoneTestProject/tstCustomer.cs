@@ -2,11 +2,10 @@
 using APhoneLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace APhoneTestProject
+namespace CustomerTestProject
 {
-  
     [TestClass]
-    public class APhoneTests
+    public class CustomerTests
     {
         //Start of Komal's Tests
         [TestMethod]
@@ -108,7 +107,7 @@ namespace APhoneTestProject
             //test to see that the two vlaues are the same
             Assert.AreEqual(ACustomer.Surname, Surname);
         }
-
+        //End of Komal's tests
     }
 }
 
