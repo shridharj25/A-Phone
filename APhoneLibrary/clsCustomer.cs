@@ -11,6 +11,7 @@ namespace APhoneLibrary
         public string PostCode { get; set; }
         public string StreetName { get; set; }
         public string Surname { get; set; }
+        public int CustomerID { get; set; }
 
         public string ValidCustomerFirstName(string someFirstName)
         {
