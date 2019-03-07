@@ -17,6 +17,19 @@ namespace CustomerTestProject
             Assert.IsNotNull(ACustomer);
         }
 
+        [TestMethod]
+        public void CustomerIDOK()
+        {
+            //create an instance of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //create some test data to assign to the property
+            Int32 SomeCustomerID = 1;
+            //assign the data to the property
+            ACustomer.CustomerID = SomeCustomerID;
+            //test to see that the two values are the same
+            Assert.AreEqual(ACustomer.CustomerID, SomeCustomerID);
+        }
+
         /// <summary>
         /// Arrtibute: First Name
         /// </summary>
@@ -150,7 +163,7 @@ namespace CustomerTestProject
             string SomeFirstName = "Komal";
             //invoke the mothod
             Error = ACustomer.ValidCustomerFirstName(SomeFirstName);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -227,7 +240,7 @@ namespace CustomerTestProject
             string SomeHouseNumber = "1";
             //invoke the mothod
             Error = ACustomer.ValidCustomerHouseNumber(SomeHouseNumber);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -242,7 +255,7 @@ namespace CustomerTestProject
             string SomeHouseNumber = "22";
             //invoke the mothod
             Error = ACustomer.ValidCustomerHouseNumber(SomeHouseNumber);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -257,7 +270,7 @@ namespace CustomerTestProject
             string SomeHouseNumber = "6662";
             //invoke the mothod
             Error = ACustomer.ValidCustomerHouseNumber(SomeHouseNumber);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -272,7 +285,7 @@ namespace CustomerTestProject
             string SomeHouseNumber = "78564";
             //invoke the mothod
             Error = ACustomer.ValidCustomerHouseNumber(SomeHouseNumber);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -381,7 +394,7 @@ namespace CustomerTestProject
             string SomePhoneNo = "0887653";
             //invoke the mothod
             Error = ACustomer.ValidCustomerPhoneNo(SomePhoneNo);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -396,7 +409,7 @@ namespace CustomerTestProject
             string SomePhoneNo = "08876534";
             //invoke the mothod
             Error = ACustomer.ValidCustomerPhoneNo(SomePhoneNo);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -411,7 +424,7 @@ namespace CustomerTestProject
             string SomePhoneNo = "08876534212876";
             //invoke the mothod
             Error = ACustomer.ValidCustomerPhoneNo(SomePhoneNo);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -441,7 +454,7 @@ namespace CustomerTestProject
             string SomePhoneNo = "0887653";
             //invoke the mothod
             Error = ACustomer.ValidCustomerPhoneNo(SomePhoneNo);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -519,7 +532,7 @@ namespace CustomerTestProject
             string SomePostCode = "LE678MT";
             //invoke the mothod
             Error = ACustomer.ValidCustomerPostCode(SomePostCode);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -564,7 +577,7 @@ namespace CustomerTestProject
             string SomePostCode = "LE678MT";
             //invoke the mothod
             Error = ACustomer.ValidCustomerPostCode(SomePostCode);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -609,7 +622,7 @@ namespace CustomerTestProject
             string SomePostCode = "LE678MTY56";
             //invoke the mothod
             Error = ACustomer.ValidCustomerPostCode(SomePostCode);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreNotEqual(Error, "");
         }
 
@@ -671,7 +684,7 @@ namespace CustomerTestProject
             string SomeStreetName = "ggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerStreetName(SomeStreetName);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -686,7 +699,7 @@ namespace CustomerTestProject
             string SomeStreetName = "gggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerStreetName(SomeStreetName);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -701,7 +714,7 @@ namespace CustomerTestProject
             string SomeStreetName = "ggggggggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerStreetName(SomeStreetName);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -716,7 +729,7 @@ namespace CustomerTestProject
             string SomeStreetName = "gggggggggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerStreetName(SomeStreetName);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -808,7 +821,7 @@ namespace CustomerTestProject
             string SomeSurname = "ggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerSurname(SomeSurname);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -823,7 +836,7 @@ namespace CustomerTestProject
             string SomeSurname = "gggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerSurname(SomeSurname);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -838,7 +851,7 @@ namespace CustomerTestProject
             string SomeSurname = "ggggggggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerSurname(SomeSurname);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -853,7 +866,7 @@ namespace CustomerTestProject
             string SomeSurname = "ggggggggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerSurname(SomeSurname);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
@@ -883,7 +896,7 @@ namespace CustomerTestProject
             string SomeSurname = "ggggg";
             //invoke the mothod
             Error = ACustomer.ValidCustomerSurname(SomeSurname);
-            //test to see that the result is NOT OK i.e there should be an error message
+            //test to see that the result is NOT OK i.e there should not be an error message
             Assert.AreEqual(Error, "");
         }
 
