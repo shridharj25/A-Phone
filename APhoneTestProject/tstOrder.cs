@@ -18,6 +18,54 @@ namespace OrderTestProject
         }
 
         [TestMethod]
+        public void OrderIDOK()
+        {
+            //create instance of the class
+            clsOrder AOrder = new clsOrder();
+            //create some test data 
+            Int32 someOrderID = 3;
+            //assign the data property
+            AOrder.OrderID = someOrderID;
+            //test to see the that the two values are the same
+            Assert.AreEqual(AOrder.OrderID, someOrderID);
+        }
+        [TestMethod]
+        public void CustomerIDOK()
+        {
+            //create instance of the class
+            clsOrder AOrder = new clsOrder();
+            //create some test data 
+            Int32 someCustomerID = 3;
+            //assign the data property
+            AOrder.CustomerID = someCustomerID;
+            //test to see the that the two values are the same
+            Assert.AreEqual(AOrder.CustomerID, someCustomerID);
+        }
+        [TestMethod]
+        public void PhoneIDOK()
+        {
+            //create instance of the class
+            clsOrder AOrder = new clsOrder();
+            //create some test data 
+            Int32 somePhoneID = 3;
+            //assign the data property
+            AOrder.PhoneID = somePhoneID;
+            //test to see the that the two values are the same
+            Assert.AreEqual(AOrder.PhoneID, somePhoneID);
+        }
+        [TestMethod]
+        public void TarrifIDOK()
+        {
+            //create instance of the class
+            clsOrder AOrder = new clsOrder();
+            //create some test data 
+            Int32 someTarrifID = 3;
+            //assign the data property
+            AOrder.TarrifID = someTarrifID;
+            //test to see the that the two values are the same
+            Assert.AreEqual(AOrder.TarrifID, someTarrifID);
+        }
+        [TestMethod]
         public void OrderDateOK()
         {
             //create instance of the class
@@ -36,7 +84,7 @@ namespace OrderTestProject
             //create an instance of the class
             clsOrder AOrder = new clsOrder();
             //create some test data 
-            double somePrice = 450.0;
+            decimal somePrice = Convert.ToDecimal("500.00");
             //assign the data to property
             AOrder.Price = somePrice;
             //test to see that the two values are the same
