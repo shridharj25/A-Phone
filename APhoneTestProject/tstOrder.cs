@@ -84,11 +84,26 @@ namespace OrderTestProject
             //create an instance of the class
             clsOrder AOrder = new clsOrder();
             //create some test data 
-            decimal somePrice = Convert.ToDecimal("500.00");
+            decimal somePrice = Convert.ToDecimal("500");
             //assign the data to property
             AOrder.Price = somePrice;
             //test to see that the two values are the same
             Assert.AreEqual(AOrder.Price, somePrice);
+        }
+
+        [TestMethod]
+        public void ValidOrderPriceOK()
+        {
+            //create an instance of the class
+            clsOrder AOrder = new clsOrder();
+            //create a string to store the result of the validation
+            String Error = "";
+            //create some test data 
+            decimal someOrderPrice = Convert.ToDecimal("500");
+            //invoke the method
+            Error = AOrder.ValidOrderPrice(someOrderPrice);
+            //test to see that the result is okay i.e there was no error message 
+            Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
@@ -237,6 +252,16 @@ namespace OrderTestProject
             //test to check that the two values are equal
             Assert.AreEqual(AOrder.OrderDueDate, someOrderDueDate);
         }
+
+        [TestMethod]
+        public void TwoOrdersPresent()
+        {
+            //create an instance of the class we want to create 
+            clsOrderCollection Orders = new clsOrderCollection();
+            //test to see that the two values are the same
+            Assert.AreEqual(Orders.Count, 2);
+        }
+           
         //End of Shridhar's Tests
     }
 }
