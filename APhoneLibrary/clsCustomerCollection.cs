@@ -37,6 +37,24 @@ namespace APhoneLibrary
                 mAllCustomers = value;
             }
         }
+
+        //public constructor for the class
+        public clsCustomerCollection()
+        {
+            //create an instance of the customer class to store a customer
+            clsCustomer ACustomer = new clsCustomer();
+            //set the customer to John
+            ACustomer.FirstName = "John";
+            //add the customer to the private list of customers
+            mAllCustomers.Add(ACustomer);
+            //re initialise the ACustomer object to accept a new item
+            ACustomer = new clsCustomer();
+            //set the customer to Komal
+            ACustomer.FirstName = "Komal";
+            //add the second customer to the private list of customers
+            mAllCustomers.Add(ACustomer);
+            //the private list now contains two customers
+        }
         //public int Count { get; set; }
         //public List<clsCustomer> AllCustomers { get; set; }
     }

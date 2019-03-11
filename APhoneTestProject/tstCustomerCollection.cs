@@ -23,7 +23,7 @@ namespace APhoneTestProject
             //create an instance of the class
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create some test data to assign to the property
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             //assign the data to the property
             AllCustomers.Count = SomeCount;
             //test to see that the two values are the same
@@ -50,6 +50,15 @@ namespace APhoneTestProject
             Customers.AllCustomers = TestList;
             //test to see that two values are the same
             Assert.AreEqual(Customers.AllCustomers, TestList);
+        }
+
+        [TestMethod]
+        public void TwoCustomersPresent()
+        {
+            //create an instance of the class
+            clsCustomerCollection Customers = new clsCustomerCollection();
+            //test to see that the two values are the same
+            Assert.AreEqual(Customers.Count, 2);
         }
     }
 }
