@@ -5,7 +5,7 @@
         public string Make { get; set; }
         public string Model { get; set; }
         public string PhoneNo { get; set; }
-        public double Price { get; set; }
+        public string Price { get; set; }
         public double ScreenSize { get; set; }
         public string CameraQuality { get; set; }
         public int PhoneId { get; set; }
@@ -67,43 +67,43 @@
             return Error;
         }
 
-        public string ValidPhonePrice(double somePhonePrice)
-        {
-            //string variable to store the error message
-            string Error = "";
-            //if the phone price is more 1200
-            if (somePhonePrice > 1200)
-            {
-                //return an error message
-                Error = "There are no phones above £1200";
-            }
+        //public string ValidPhonePrice(string somePhonePrice)
+        //{
+        //    //string variable to store the error message
+        //    string Error = "";
+        //    //if the phone price is more 1200
+        //    if (somePhonePrice.Length > 1200)
+        //    {
+        //        //return an error message
+        //        Error = "There are no phones above £1200";
+        //    }
 
-            if (somePhonePrice == 0)
-            {
-                //otherwise return an error message
-                Error = "Price cannot be blank!";
-            }
-            return Error;
-        }
+        //    if (somePhonePrice.Length == 0)
+        //    {
+        //        //otherwise return an error message
+        //        Error = "Price cannot be blank!";
+        //    }
+        //    return Error;
+        //}
 
-        public string ValidPhoneScreenSize(double somePhoneScreenSize)
-        {
-            //string variable to store the error message
-            string Error = "";
-            //if the phone screen size cannot be more that 7"
-            if (somePhoneScreenSize > 7)
-            {
-                //return an error message
-                Error = "There are no phones with a screen size greater than 7 inches";
-            }
+        //public string ValidPhoneScreenSize(double somePhoneScreenSize)
+        //{
+        //    //string variable to store the error message
+        //    string Error = "";
+        //    //if the phone screen size cannot be more that 7"
+        //    if (somePhoneScreenSize > 7)
+        //    {
+        //        //return an error message
+        //        Error = "There are no phones with a screen size greater than 7 inches";
+        //    }
 
-            if (somePhoneScreenSize == 0)
-            {
-                //otherwise return an error message
-                Error = "Sreen size cannot be blank!";
-            }
-            return Error;
-        }
+        //    if (somePhoneScreenSize == 0)
+        //    {
+        //        //otherwise return an error message
+        //        Error = "Sreen size cannot be blank!";
+        //    }
+        //    return Error;
+        //}
 
         public string ValidPhoneCameraQuality(string somePhoneCameraQuality)
         {
