@@ -308,39 +308,41 @@ namespace CustomerTestProject
         /// Arrtibute: DOB
         /// </summary>
 
-        //[TestMethod]
-        //public void CustomerDOBOK()
-        //{
-        //    //create an instance of the class
-        //    clsCustomer ACustomer = new clsCustomer();
-        //    //create some test data to assign to the property
-        //    DateTime DOB = Convert.ToDateTime("01/01/2011");
-        //    //assign the data to the property
-        //    ACustomer.DOB = DOB;
-        //    //test to see that the two values are the same
-        //    Assert.AreEqual(ACustomer.DOB, DOB);
-        //}
+////        [TestMethod]
+////        public void CustomerDOBOK()
+////        {
+////            create an instance of the class
+////            clsCustomer ACustomer = new clsCustomer();
+////        create some test data to assign to the property
+////        DateTime DOB = DateTime.Now.Date;
+////            assign the data to the property
+////            ACustomer.DOB = DOB;
+////            test to see that the two values are the same
+////            Assert.AreEqual(ACustomer.DOB, DOB);
+////        }
 
-        //        //[TestMethod]
-        //        //public void ValidCustomerDOBOK()
-        //        //{
-        //        //    //create an instance of the class
-        //        //    clsCustomer ACustomer = new clsCustomer();
-        //        //    //create a string variable to store the result of the validation
-        //        //    String Error = "";
-        //        //    //create some test data to test the method
-        //        //    DateTime SomeDOB = Convert.ToDateTime("01/01/2011");
-        //        //    //invoke the method
-        //        //    Error = ACustomer.ValidCustomerDOB(SomeDOB);
-        //        //    //test to see that the result is OK i.e there was no error message returned
-        //        //    Assert.AreEqual(Error, "");
-        //        //} ?????????????????????????????????????????????????????????????????????????????? confused?
+////    [TestMethod]
+////    public void ValidCustomerDOBOK()
+////    {
+////        create an instance of the class
+////        clsCustomer ACustomer = new clsCustomer();
+////    create a string variable to store the result of the validation
+////    String Error = "";
+////            create some test data to test the method
+////            DateTime SomeDOB = DateTime.Now.Date; ;
+////            invoke the method
+////            Error = ACustomer.ValidCustomerDOB(SomeDOB);
+////    test to see that the result is OK i.e there was no error message returned
 
-        /// <summary>
-        /// Arrtibute: PhoneNo
-        /// </summary>
+////    Assert.AreEqual(Error, "");
+////}
 
-        [TestMethod]
+
+/// <summary>
+/// Arrtibute: PhoneNo
+/// </summary>
+
+[TestMethod]
         public void CustomerPhoneNoOK()
         {
             //create an instance of the class
