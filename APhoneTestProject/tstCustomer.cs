@@ -313,38 +313,110 @@ namespace CustomerTestProject
         {
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
-        //create some test data to assign to the property
-        DateTime DOB = DateTime.Now.Date;
-                    //assign the data to the property
-                    ACustomer.DOB = DOB;
-                    //test to see that the two values are the same
-                    Assert.AreEqual(ACustomer.DOB, DOB);
+            //create some test data to assign to the property
+            DateTime DOB = DateTime.Now.Date;
+            //assign the data to the property
+            ACustomer.DOB = DOB;
+            //test to see that the two values are the same
+            Assert.AreEqual(ACustomer.DOB, DOB);
         }
 
-
-    [TestMethod]
-    public void ValidCustomerDOBOK()
-    {
+        [TestMethod]
+        public void ValidCustomerDOBOK()
+        {
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
             //create a string variable to store the result of the validation
             String Error = "";
             // create some test data to test the method
-             DateTime SomeDOB = DateTime.Now.Date; ;
-             //invoke the method
-             Error = ACustomer.ValidCustomerDOB(SomeDOB);
+            DateTime SomeDOB = DateTime.Now.Date; ;
+            //invoke the method
+            Error = ACustomer.ValidCustomerDOB(SomeDOB);
             //test to see that the result is OK i.e there was no error message returned
             Assert.AreEqual(Error, "");
-    }
+        }
 
+        [TestMethod]
+        public void CustomerDOBMinLessOneOK()
+        {
+            //create an instance of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            // create some test data to test the method
+            DateTime SomeDOB = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            SomeDOB = SomeDOB.AddDays(-1);
+            //convert the date variable to a string variable
+            string DOB = SomeDOB.ToString();
+            //invoke the method
+            Error = ACustomer.ValidCustomerDOB(SomeDOB);
+            //test to see that the result is OK i.e there was a error message returned
+            Assert.AreNotEqual(Error, "");
+        }
 
-    /// <summary>
-    /// Arrtibute: PhoneNo
-    /// </summary>
+        [TestMethod]
+        public void CustomerDOBMinOK()
+        {
+            //create an instance of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            // create some test data to test the method
+            DateTime SomeDOB = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DOB = SomeDOB.ToString();
+            //invoke the method
+            Error = ACustomer.ValidCustomerDOB(SomeDOB);
+            //test to see that the result is OK i.e there was no error message returned
+            Assert.AreEqual(Error, "");
+        }
 
-[TestMethod]
-       public void CustomerPhoneNoOK()
-       {
+        [TestMethod]
+        public void CustomerDOBMinPlusOneOK()
+        {
+            //create an instance of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            // create some test data to test the method
+            DateTime SomeDOB = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            SomeDOB = SomeDOB.AddDays(1);
+            //convert the date variable to a string variable
+            string DOB = SomeDOB.ToString();
+            //invoke the method
+            Error = ACustomer.ValidCustomerDOB(SomeDOB);
+            //test to see that the result is OK i.e there was a error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerDOBExtremeMaxOK()
+        {
+            //create an instance of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            // create some test data to test the method
+            DateTime SomeDOB = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            SomeDOB = SomeDOB.AddYears(1000);
+            //convert the date variable to a string variable
+            string DOB = SomeDOB.ToString();
+            //invoke the method
+            Error = ACustomer.ValidCustomerDOB(SomeDOB);
+            //test to see that the result is OK i.e there was a error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        /// <summary>
+        /// Arrtibute: PhoneNo
+        /// </summary>
+
+        [TestMethod]
+        public void CustomerPhoneNoOK()
+        {
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
             //create some test data to assign to the property

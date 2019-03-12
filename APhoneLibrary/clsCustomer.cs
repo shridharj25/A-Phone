@@ -153,7 +153,19 @@ namespace APhoneLibrary
 
         public string ValidCustomerDOB(DateTime someDOB)
         {
-            throw new NotImplementedException();
+            //create a string varibale to store the error
+            string Error = "";
+            if (someDOB < DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be less than todays date";
+            }
+            if (someDOB > DateTime.Now.Date)
+            {
+                //record the error
+                Error = Error + "The date cannot be in the future";
+            }
+            return Error;
         }
     }
 
