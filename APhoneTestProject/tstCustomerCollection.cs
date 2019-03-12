@@ -53,6 +53,28 @@ namespace APhoneTestProject
         }
 
         [TestMethod]
+        public void CountMatchesList()
+        {
+            //create an insatnce of the class
+            clsCustomerCollection Customers = new clsCustomerCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsCustomer> TestList = new List<clsCustomer>();
+            //add an item to the list
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //set its properties
+            TestItem.CustomerID = 1;
+            TestItem.FirstName = "John";
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            Customers.AllCustomers = TestList;
+            //test to see that two values are the same
+            Assert.AreEqual(Customers.Count, TestList.Count);
+        }
+
+        [TestMethod]
         public void TwoCustomersPresent()
         {
             //create an instance of the class
