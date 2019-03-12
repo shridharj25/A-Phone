@@ -42,6 +42,24 @@ namespace APhoneLibrary
             }
 
         }
+        //public constructor for the class
+       public clsOrderCollection()
+       {
+            //creating an instance of the order class to store a order
+            clsOrder AOrder = new clsOrder();
+            //set the order to Jhon
+            AOrder.Order = "Jhon";
+            //add the order to the private list of counties
+            mAllOrders.Add(AOrder);
+            //re initalise the AOrder object to accept a new item
+            AOrder = new clsOrder();
+            //set the order to Jhon
+            AOrder.Order = "Bob";
+            //add the second order to the private list of orders
+            mAllOrders.Add(AOrder);
+            //the private list now contains two orders
 
+        }
     }
+    
 }

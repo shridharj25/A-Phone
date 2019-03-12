@@ -6,6 +6,7 @@ namespace APhoneLibrary
     {
         //public variable for OrderDate
         public DateTime OrderDate { get; set; }
+        public String Order{ get; set; }
         //public variable for Price
         public decimal Price { get; set; }
         //public variable for OrderrMadeBy
