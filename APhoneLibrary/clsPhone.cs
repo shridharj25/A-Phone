@@ -1,127 +1,151 @@
-﻿namespace APhoneLibrary
+﻿using System;
+
+namespace APhoneLibrary
 {
     public class clsPhone
     {
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public string PhoneNo { get; set; }
-        public string Price { get; set; }
-        public double ScreenSize { get; set; }
-        public string CameraQuality { get; set; }
-        public int PhoneId { get; set; }
+        //private data member for all attributes
+        private int mPhoneId;
+        private string mMake;
+        private string mModel;
+        private string mPhoneNo;
+        private string mPrice;
+        private string mScreenSize;
+        private string mCameraQuality;
 
-        public string ValidPhoneMake(string somePhoneMake)
+        //public property for phone id
+        public int PhoneId
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the phone make is more 10 characters
-            if (somePhoneMake.Length > 10)
+            get
             {
-                //return an error message
-                Error = "The phone make cannot be more than 10 characters long";
+                //return the private data
+                return mPhoneId;
             }
-
-            if (somePhoneMake.Length == 0)
+            set
             {
-                //otherwise return an error message
-                Error = "Phone make cannot be blank!";
+                //set the private data
+                mPhoneId = value;
             }
-            return Error;
         }
 
-        public string ValidPhoneModel(string somePhoneModel)
+        //public property for make
+        public string Make
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the phone model is more 10 characters
-            if (somePhoneModel.Length > 10)
+            get
             {
-                //return an error message
-                Error = "The phone model cannot be more than 10 characters long";
+                //return the private data
+                return mMake;
             }
-
-            if (somePhoneModel.Length == 0)
+            set
             {
-                //otherwise return an error message
-                Error = "Phone model cannot be blank!";
+                //set the private data
+                mMake = value;
             }
-            return Error;
         }
 
-        public string ValidPhoneNo(string somePhoneNo)
+        //public property for model
+        public string Model
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the phone no is not 11 characters
-            if (somePhoneNo.Length != 11)
+            get
             {
-                //return an error message
-                Error = "The phone no has to be 11 nubers";
+                //return the private data
+                return mModel;
             }
-
-            if (somePhoneNo.Length == 0)
+            set
             {
-                //otherwise return an error message
-                Error = "Phone no cannot be blank!";
+                //set the private data
+                mModel = value;
             }
-            return Error;
         }
 
-        //public string ValidPhonePrice(string somePhonePrice)
-        //{
-        //    //string variable to store the error message
-        //    string Error = "";
-        //    //if the phone price is more 1200
-        //    if (somePhonePrice.Length > 1200)
-        //    {
-        //        //return an error message
-        //        Error = "There are no phones above £1200";
-        //    }
-
-        //    if (somePhonePrice.Length == 0)
-        //    {
-        //        //otherwise return an error message
-        //        Error = "Price cannot be blank!";
-        //    }
-        //    return Error;
-        //}
-
-        //public string ValidPhoneScreenSize(double somePhoneScreenSize)
-        //{
-        //    //string variable to store the error message
-        //    string Error = "";
-        //    //if the phone screen size cannot be more that 7"
-        //    if (somePhoneScreenSize > 7)
-        //    {
-        //        //return an error message
-        //        Error = "There are no phones with a screen size greater than 7 inches";
-        //    }
-
-        //    if (somePhoneScreenSize == 0)
-        //    {
-        //        //otherwise return an error message
-        //        Error = "Sreen size cannot be blank!";
-        //    }
-        //    return Error;
-        //}
-
-        public string ValidPhoneCameraQuality(string somePhoneCameraQuality)
+        //public property for phone number
+        public string PhoneNo
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the phone make is more 5 characters
-            if (somePhoneCameraQuality.Length > 5)
+            get
             {
-                //return an error message
-                Error = "The phone camera quality cannot be more than 5 characters";
+                //return the private data
+                return mPhoneNo;
             }
+            set
+            {
+                //set the private data
+                mPhoneNo = value;
+            }
+        }
 
-            if (somePhoneCameraQuality.Length == 0)
+        //public property for price
+        public string Price
+        {
+            get
             {
-                //otherwise return an error message
-                Error = "Phone camera quality cannot be blank!";
+                //return the private data
+                return mPrice;
             }
-            return Error;
+            set
+            {
+                //set the private data
+                mPrice = value;
+            }
+        }
+
+        //public property for Screen size
+        public string ScreenSize
+        {
+            get
+            {
+                //return the private data
+                return mScreenSize;
+            }
+            set
+            {
+                //set the private data
+                mScreenSize = value;
+            }
+        }
+
+        //public property for camera quality
+        public string CameraQuality
+        {
+            get
+            {
+                //return the private data
+                return mCameraQuality;
+            }
+            set
+            {
+                //set the private data
+                mCameraQuality = value;
+            }
+        }
+
+        public bool Find(int phoneId)
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the phone id to search for
+            DB.AddParameter("@PhoneId", phoneId);
+            //execute the stored procedure
+            DB.Execute("sproc_PhoneTable_FilterByPhoneId");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mPhoneId = Convert.ToInt32(DB.DataTable.Rows[0]["PhoneId"]);
+                mMake = Convert.ToString(DB.DataTable.Rows[0]["Make"]);
+                mModel = Convert.ToString(DB.DataTable.Rows[0]["Model"]);
+                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
+                mPrice = Convert.ToString(DB.DataTable.Rows[0]["Price"]);
+                mScreenSize = Convert.ToString(DB.DataTable.Rows[0]["ScreenSize"]);
+                mCameraQuality = Convert.ToString(DB.DataTable.Rows[0]["CameraQuality"]);
+                //return that everything worked ok
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem 
+                return false;
+            }
         }
     }
 }
