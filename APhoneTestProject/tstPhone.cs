@@ -9,686 +9,273 @@ namespace PhoneTestProject
     public class PhoneTests
     {
        [TestMethod]
-        public void PhoneInstanceOK()
-        {
-            //create an instance of the class
+       public void InstanceOk()
+       {
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //test to see that it exists
+            //test to see if that exists
             Assert.IsNotNull(APhone);
+       }
+
+       [TestMethod]
+       public void PhoneIdPropertyOk()
+       {
+            //create an instance of the class we want to create
+            clsPhone APhone = new clsPhone();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            APhone.PhoneId = TestData;
+            //test to see if the two values are the same 
+            Assert.AreEqual(APhone.PhoneId, TestData);
+       }
+
+       [TestMethod]
+       public void PhoneMakePropertyOk()
+       {
+            //create an instance of the class we want to create
+            clsPhone APhone = new clsPhone();
+            //create some test data to assign to the property
+            string TestData = "Samsung";
+            //assign the data to the property
+            APhone.Make = TestData;
+            //test to see if the two values are the same 
+            Assert.AreEqual(APhone.Make, TestData);
+       }
+
+        [TestMethod]
+        public void PhoneModelPropertyOk()
+        {
+            //create an instance of the class we want to create
+            clsPhone APhone = new clsPhone();
+            //create some test data to assign to the property
+            string TestData = "S10";
+            //assign the data to the property
+            APhone.Model = TestData;
+            //test to see if the two values are the same 
+            Assert.AreEqual(APhone.Model, TestData);
         }
 
-        /// <summary>
-        /// Attribute: Phone Make
-        /// </summary>
-        
         [TestMethod]
-        public void PhoneMakeOK()
+        public void PhoneNoPropertyOk()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create some test data 
-            string someMake = "Samsung";
-            //assign the data to property
-            APhone.Make = someMake;
-            //test to see that the two values are the same
-            Assert.AreEqual(APhone.Make, someMake);
+            //create some test data to assign to the property
+            string TestData = "07749493975";
+            //assign the data to the property
+            APhone.PhoneNo = TestData;
+            //test to see if the two values are the same 
+            Assert.AreEqual(APhone.PhoneNo, TestData);
         }
 
         [TestMethod]
-        public void ValidPhoneMakeOK()
+        public void PhonePricePropertyOk()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "Apple";
+            //create some test data to assign to the property
+            string TestData = "500";
+            //assign the data to the property
+            APhone.Price = TestData;
+            //test to see if the two values are the same 
+            Assert.AreEqual(APhone.Price, TestData);
+        }
+
+        [TestMethod]
+        public void PhoneScreenSizePropertyOk()
+        {
+            //create an instance of the class we want to create
+            clsPhone APhone = new clsPhone();
+            //create some test data to assign to the property
+            string TestData = "7.2";
+            //assign the data to the property
+            APhone.ScreenSize = TestData;
+            //test to see if the two values are the same 
+            Assert.AreEqual(APhone.ScreenSize, TestData);
+        }
+
+        [TestMethod]
+        public void PhoneCameraQualityPropertyOk()
+        {
+            //create an instance of the class we want to create
+            clsPhone APhone = new clsPhone();
+            //create some test data to assign to the property
+            string TestData = "HD";
+            //assign the data to the property
+            APhone.CameraQuality = TestData;
+            //test to see if the two values are the same 
+            Assert.AreEqual(APhone.CameraQuality, TestData);
+        }
+
+        [TestMethod]
+        public void FindMethodOk()
+        {
+            //create an instance of the class we want to create
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create the test data to use with the method
+            Int32 PhoneId = 1;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //Test to see that the result is correct
+            Assert.IsTrue(Found);
         }
 
         [TestMethod]
-        public void PhonMakeMinLessOneOK()
+        public void TestPhoneIdFound()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "";
+            //boolean variable for storing the result of the search
+            Boolean Found = false;
+            //boolean varibale to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 PhoneId = 2;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is not okay i.e there should be an error
-            Assert.AreNotEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //check the property
+            if (APhone.PhoneId != 2)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void PhoneMakeMinOK()
+        public void TestPhoneMakeFound()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "A";
+            //boolean variable for storing the result of the search
+            Boolean Found = false;
+            //boolean varibale to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 PhoneId = 2;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //check the property
+            if (APhone.Make != "Samsung")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void PhoneMakeMinPlusOneOK()
+        public void TestPhoneModelFound()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "Ap";
+            //boolean variable for storing the result of the search
+            Boolean Found = false;
+            //boolean varibale to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 PhoneId = 2;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //check the property
+            if (APhone.Model != "S10")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void PhoneMakeMaxLessOneOK()
+        public void TestPhoneNoFound()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "Adgshtyfy";
+            //boolean variable for storing the result of the search
+            Boolean Found = false;
+            //boolean varibale to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 PhoneId = 2;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //check the property
+            if (APhone.PhoneNo != "07749493975")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void PhoneMakeMaxOK()
+        public void TestPhonePriceFound()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "Adnyjrioeo";
+            //boolean variable for storing the result of the search
+            Boolean Found = false;
+            //boolean varibale to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 PhoneId = 2;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //check the property
+            if (APhone.Price != "500")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void PhoneMakeMaxPlusOneOK()
+        public void TestPhoneScreenSizeFound()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "Abfnhdyeurj";
+            //boolean variable for storing the result of the search
+            Boolean Found = false;
+            //boolean varibale to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 PhoneId = 2;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //check the property
+            if (APhone.ScreenSize != "7")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
-        public void PhoneMakeMidOK()
+        public void TestPhoneCameraQualityFound()
         {
-            //create an instance of the class
+            //create an instance of the class we want to create
             clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "Abfhy";
+            //boolean variable for storing the result of the search
+            Boolean Found = false;
+            //boolean varibale to record if data is ok (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 PhoneId = 2;
             //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
+            Found = APhone.Find(PhoneId);
+            //check the property
+            if (APhone.CameraQuality != "HD")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
         }
-
-        [TestMethod]
-        public void PhoneMakeExtremeMaxOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someMake = "Abcjfdhejddjhffjufruhreghieurghi";
-            //invoke the method
-            Error = APhone.ValidPhoneMake(someMake);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        /// <summary>
-        /// Attribute: Phone Model
-        /// </summary>
-        
-        [TestMethod]
-        public void PhoneModelOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create some test data 
-            string someModel = "S8";
-            //assign the data to property
-            APhone.Model = someModel;
-            //test to see that the two values are the same
-            Assert.AreEqual(APhone.Model, someModel);
-        }
-
-        [TestMethod]
-        public void ValidPhoneModelOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S10";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelMinLessOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelMinOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelMinPlusOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S1";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelMaxLessOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S12345678";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is  okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelMaxOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S123456789";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is  okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelMaxPlusOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S1234567891";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelMidOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S1234";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneModelExtremeMaxOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someModel = "S1234567891dthdthgrggfserfge";
-            //invoke the method
-            Error = APhone.ValidPhoneModel(someModel);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        /// <summary>
-        /// Attribute: Phone No
-        /// </summary>
-        
-        [TestMethod]
-        public void PhoneNoOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create some test data 
-            string somePhoneNo = "07749493975";
-            //assign the data to property
-            APhone.PhoneNo = somePhoneNo;
-            //test to see that the two values are the same
-            Assert.AreEqual(APhone.PhoneNo, somePhoneNo);
-        }
-
-        [TestMethod]
-        public void ValidPhoneNoOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "07749493975";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoMinLessOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoMinOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "0";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoMinPlusOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "07";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoMaxLessOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "0774949397";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoMaxOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "07749493975";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoMaxPlusOneOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "077494939756";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoMidOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "07749493";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void PhoneNoExtremeMaxOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string somePhoneNo = "07749493975428645186256";
-            //invoke the method
-            Error = APhone.ValidPhoneNo(somePhoneNo);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        /// <summary>
-        /// Attribute: Phone Price
-        /// </summary>
-
-        [TestMethod]
-        public void PhonePriceOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create some test data 
-            string somePrice = "500";
-            //assign the data to property
-            APhone.Price = somePrice;
-            //test to see that the two values are the same
-            Assert.AreEqual(APhone.Price, somePrice);
-        }
-
-        //[TestMethod]
-        //public void ValidPhonePriceOK()
-        //{
-        //    //create an instance of the class
-        //    clsPhone APhone = new clsPhone();
-        //    //create a string to store the result of the validation
-        //    String Error = "";
-        //    //create some test data 
-        //    string somePhonePrice = "500";
-        //    //invoke the method
-        //    Error = APhone.ValidPhonePrice(somePhonePrice);
-        //    //test to see that the result is okay i.e there was no error message 
-        //    Assert.AreEqual(Error, "");
-        //}
-
-        //[TestMethod]
-        //public void PhonePriceMinLessOneOK()
-        //{
-        //    //create an instance of the class
-        //    clsPhone APhone = new clsPhone();
-        //    //create a string to store the result of the validation
-        //    String Error = "";
-        //    //create some test data 
-        //    string somePhonePrice = "";
-        //    //invoke the method
-        //    Error = APhone.ValidPhonePrice(somePhonePrice);
-        //    //test to see that the result is not okay i.e there was an error message 
-        //    Assert.AreNotEqual(Error, "");
-        //}
-
-        /// <summary>
-        /// Attribute: Screen Size
-        /// </summary>
-
-        //[TestMethod]
-        //public void PhoneScreenSizeOk()
-        //{
-        //    //create an instance of the class
-        //    clsPhone APhone = new clsPhone();
-        //    //create some test data 
-        //    string someScreenSize = 5.6;
-        //    //assign the data to property
-        //    APhone.ScreenSize = someScreenSize;
-        //    //test to see that the two values are the same
-        //    Assert.AreEqual(APhone.ScreenSize, someScreenSize);
-        //}
-
-        /// <summary>
-        /// Attribute: Camera Quality
-        /// </summary>
-
-        [TestMethod]
-        public void PhoneCameraQualityOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create some test data 
-            string someCameraQuality = "12";
-            //assign the data to property
-            APhone.CameraQuality = someCameraQuality;
-            //test to see that the two values are the same
-            Assert.AreEqual(APhone.CameraQuality, someCameraQuality);
-        }
-
-        [TestMethod]
-        public void ValidCameraQualityOK()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "15";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityMinLessOneOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityMinOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "1";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityMinPlusOneOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "12";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityMidOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "123";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityMaxLessOneOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "1234";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityMaxOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "12345";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is okay i.e there was no error message 
-            Assert.AreEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityMaxPlusOneOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "123456";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-
-        [TestMethod]
-        public void CameraQualityExtremeMaxOk()
-        {
-            //create an instance of the class
-            clsPhone APhone = new clsPhone();
-            //create a string to store the result of the validation
-            String Error = "";
-            //create some test data 
-            string someCameraQuality = "123456789123456789";
-            //invoke the method
-            Error = APhone.ValidPhoneCameraQuality(someCameraQuality);
-            //test to see that the result is not okay i.e there was an error message 
-            Assert.AreNotEqual(Error, "");
-        }
-        //End of Lewis' Phone tests
     }
 }
 
