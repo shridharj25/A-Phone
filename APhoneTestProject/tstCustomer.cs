@@ -7,6 +7,17 @@ namespace CustomerTestProject
     [TestClass]
     public class CustomerTests
     {
+        //good test data
+        //create some test data to pass to the method
+        string FirstName = "Bhakti";
+        string HouseNumber = "20";
+        string DOB = DateTime.Now.Date.ToString();
+        string PhoneNo = "07876543421";
+        string PostCode = "LE6 7HY";
+        string StreetName = "Star City";
+        string Surname = "Mistry";
+
+        
         /// <summary>
         /// Properties
         /// </summary>
@@ -318,6 +329,23 @@ namespace CustomerTestProject
             }
             //test to see that the reult is correct
             Assert.IsTrue(OK);
+        }
+
+        /// <summary>
+        /// Methods: Valid
+        /// </summary>
+        
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //string variable to store an error message
+            String Error = "";
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
     }
 }
