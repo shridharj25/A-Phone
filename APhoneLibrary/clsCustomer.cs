@@ -159,6 +159,11 @@ namespace APhoneLibrary
                 return false;
             }
         }
+
+        public string Valid(string firstName, string houseNumber, string dOB, string phoneNo, string postCode, string streetName, string surname)
+        {
+            return "";
+        }
     }
 
 
