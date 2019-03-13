@@ -10,7 +10,7 @@ namespace APhoneLibrary
         //Public property for AllOrders
         public List<clsOrder> AllOrders
         {
-            //getter sends data to requesting code
+            //getter sends the data to the requesing code 
             get
             {
                 //return the count property of the private list
