@@ -26,16 +26,40 @@ namespace APhoneLibrary
 
         public bool Find(int OrderID)
         {
-            //set the private data memebr to test the data value
-            mOrderID = 5;
-            mCustomerID = 1;
-            mPhoneID = 1;
-            mTariffID = 1;
-            mTotalPrice = 700;
-            mOrderMadeBy = "Jhon";
-            mOrderDate = Convert.ToDateTime("12/01/2009");
-            //always return true
-            return true;
+            ////set the private data memebr to test the data value
+            //mOrderID = 5;
+            //mCustomerID = 1;
+            //mPhoneID = 1;
+            //mTariffID = 1;
+            //mTotalPrice = 700;
+            //mOrderMadeBy = "Jhon";
+            //mOrderDate = Convert.ToDateTime("12/01/2009");
+            ////always return true
+            //return true;
+
+            //creating an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the OrderID to search for
+            DB.AddParameter("@OrderID", OrderID);
+            //executing the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderID");
+            //if one record is found (there should be either one or zero)
+            if (DB.Count ==1)
+            {
+                mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mPhoneID = Convert.ToInt32(DB.DataTable.Rows[0]["PhoneID"]);
+                mTariffID = Convert.ToInt32(DB.DataTable.Rows[0]["TariffID"]);
+                mTotalPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["TotalPrice"]);
+                mOrderMadeBy = Convert.ToString(DB.DataTable.Rows[0]["OrderMadeBy"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //public property for the OrderID
@@ -133,7 +157,54 @@ namespace APhoneLibrary
                 mTotalPrice = value;
             }
         }
+
+        public string Valid(string orderDate, string orderMadeBy, decimal totalPrice)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store date values
+            DateTime DateTemp;
+            //If the ordermadeby is blank
+            if (orderMadeBy.Length == 0)
+            {
+                //record the error
+                Error = Error + "The OrderMadeBy may not be blank :";
+            }
+            //if the OrderMadeBy is greater than 50
+            if (orderMadeBy.Length > 50)
+            {
+                Error = Error + "The OrderMadeBy must be less than 50: ";
+            }
+            try
+            {
+                //copy the OrderDate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+            //return any error messages
+            return Error;
+        }
+
     }
+
+
+
+          
    
 
         //public string Valid(string someOrderMadeby)

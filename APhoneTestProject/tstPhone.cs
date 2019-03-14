@@ -8,6 +8,11 @@ namespace PhoneTestProject
     [TestClass]
     public class PhoneTests
     {
+
+        //good test data
+      //  string OrderMadeBy= "Jhon"
+
+            
        [TestMethod]
         public void PhoneInstanceOK()
         {
