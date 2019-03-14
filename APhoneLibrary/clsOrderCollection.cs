@@ -42,6 +42,9 @@ namespace APhoneLibrary
             }
 
         }
+
+        public List<clsOrder> OrdersList { get; set; }
+
         //public constructor for the class
         //public clsOrderCollection()
         //{
