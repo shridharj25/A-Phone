@@ -164,6 +164,8 @@ namespace APhoneLibrary
         {
             //create a string varibale to store the error
             String Error = "";
+            //create a temorary variable to store data values
+            DateTime DateTemp;
             //if the FirstName is blank
             if (firstName.Length == 0)
             {
@@ -180,13 +182,77 @@ namespace APhoneLibrary
             if (houseNumber.Length == 0)
             {
                 //record the error
-                Error = Error + "The FirstName cannot be blank";
+                Error = Error + "The HpuseNumber cannot be blank";
             }
             //if the HouseNumber is greater than 5 characters
             if (houseNumber.Length > 5)
             {
                 //record the error
                 Error = Error + "The House Number cannot be more than 5 characters";
+            }
+            try
+            {
+                //copy the DOB value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dOB);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past";
+                }
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The Date was not a valid date";
+            }
+            //if the postcode is blank
+            if (postCode.Length == 0)
+            {
+                //record the error
+                Error = Error + "The PostCode cannot be blank";
+            }
+            //if the PostCode is greater than 7 characters
+            if (postCode.Length > 7)
+            {
+                //record the error
+                Error = Error + "PostCode cannot be more than 7 characters";
+            }
+            //if the StreetName is blank
+            if (streetName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The StreetName cannot be blank";
+            }
+            //if the StreetName is less than 3 characters
+            if (streetName.Length < 3)
+            {
+                //record the error
+                Error = Error + "The Street Name cannot be less than 3 characters";
+            }
+            //if the StreetName is greater than 10 characters
+            if (streetName.Length > 10)
+            {
+                //record the error
+                Error = Error + "The Street Name cannot be more than 10 characters";
+            }
+            //if the Surname is blank
+            if (surname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The Surname cannot be blank";
+            }
+
+            //if the StreetName is greater than 10 characters
+            if (surname.Length > 10)
+            {
+                //record the error
+                Error = Error + "The surname cannot be more than 10 characters";
             }
             //return any error messages
             return Error;
