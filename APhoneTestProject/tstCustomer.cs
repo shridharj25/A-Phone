@@ -148,7 +148,7 @@ namespace CustomerTestProject
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 CustomerID = 2;
+            Int32 CustomerID = 1;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //test to see that the result is correct
@@ -191,7 +191,7 @@ namespace CustomerTestProject
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id 
-            if (ACustomer.FirstName != "Komal")
+            if (ACustomer.FirstName != "Deon")
             {
                 OK = false;
             }
@@ -213,7 +213,7 @@ namespace CustomerTestProject
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id 
-            if (ACustomer.HouseNumber != "58")
+            if (ACustomer.HouseNumber != "69")
             {
                 OK = false;
             }
@@ -257,7 +257,7 @@ namespace CustomerTestProject
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id 
-            if (ACustomer.PhoneNo != "07894561230")
+            if (ACustomer.PhoneNo != "09878675873")
             {
                 OK = false;
             }
@@ -323,7 +323,7 @@ namespace CustomerTestProject
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id 
-            if (ACustomer.Surname != "Mukesh")
+            if (ACustomer.Surname != "Bowen")
             {
                 OK = false;
             }
@@ -332,7 +332,7 @@ namespace CustomerTestProject
         }
 
         /// <summary>
-        /// Methods: Valid
+        /// Methods: Validations
         /// </summary>
         
         [TestMethod]
@@ -347,6 +347,297 @@ namespace CustomerTestProject
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
+
+        /// <summary>
+        /// Validation Method: First Name
+        /// </summary>
+
+        [TestMethod]
+        public void FirstNameMinLessOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = ""; //this should be ok
+            //invoke the method
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMin()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = "E"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMinPlusOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = "EE"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMaxLessOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = "Jeddddddd"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMax()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = "Montgomery"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMaxPlusOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = "hgyhthdgtghdgwyg"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameMid()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = "Komal"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FirstNameExtremeMax()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string FirstName = ""; //this should be ok
+            FirstName = FirstName.PadRight(500, 'a'); //this should fail
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        /// <summary>
+        /// Validation Method: House Number
+        /// </summary>
+
+        [TestMethod]
+        public void HouseNumberMinLessOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNumber = ""; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNumberMin()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNumber = "2"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNumberMinPlusOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNumber = "22"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNumberMaxLessOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNumber = "2222"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNumberMax()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNumber = "73647"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNumberMaxPlusOne()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNumber = "364563"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNumberMid()
+        {
+            //create an insatnce of the class
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            //string varibale to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string HouseNumber = "34"; //this should be ok
+            //invoke the method
+            //OK = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            Error = ACustomer.Valid(FirstName, HouseNumber, DOB, PhoneNo, PostCode, StreetName, Surname);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
     }
 }
 

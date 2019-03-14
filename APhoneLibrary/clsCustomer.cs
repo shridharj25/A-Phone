@@ -162,7 +162,34 @@ namespace APhoneLibrary
 
         public string Valid(string firstName, string houseNumber, string dOB, string phoneNo, string postCode, string streetName, string surname)
         {
-            return "";
+            //create a string varibale to store the error
+            String Error = "";
+            //if the FirstName is blank
+            if (firstName.Length == 0)
+            {
+                //record the error
+                Error = Error + "The house cannot be blank";
+            }
+            //if the First Name is greater than 15 characters
+            if (firstName.Length > 15)
+            {
+                //record the error
+                Error = Error + "The First Name cannot be more than 15 characters";
+            }
+            //if the HouseNumber is blank
+            if (houseNumber.Length == 0)
+            {
+                //record the error
+                Error = Error + "The FirstName cannot be blank";
+            }
+            //if the HouseNumber is greater than 5 characters
+            if (houseNumber.Length > 5)
+            {
+                //record the error
+                Error = Error + "The House Number cannot be more than 5 characters";
+            }
+            //return any error messages
+            return Error;
         }
     }
 
