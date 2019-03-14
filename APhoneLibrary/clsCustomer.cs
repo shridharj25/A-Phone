@@ -4,167 +4,191 @@ namespace APhoneLibrary
 {
     public class clsCustomer
     {
-        public string FirstName { get; set; }
-        public int HouseNumber { get; set; }
-        public DateTime DOB { get; set; }
-        public string PhoneNo { get; set; }
-        public string PostCode { get; set; }
-        public string StreetName { get; set; }
-        public string Surname { get; set; }
-        public int CustomerID { get; set; }
+        //private data member for the CustomerID property
+        private Int32 mCustomerID;
+        //private data memeber for the FirstName property
+        private string mFirstName;
+        //private data memeber for the HouseNumber property
+        private string mHouseNumber;
+        //private data memeber for the DOB property
+        private DateTime mDOB;
+        //private data memeber for the PhoneNo property
+        private string mPhoneNo;
+        //private data memeber for the PostCode property
+        private string mPostCode;
+        //private data memeber for the StreetName property
+        private string mStreetName;
+        //private data memeber for the Surname property
+        private string mSurname;
 
-        public string ValidCustomerFirstName(string someFirstName)
+        //public property for the customer ID
+        public int CustomerID
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the first name is more than 15 characters
-            if (someFirstName.Length > 15)
+            get
             {
-                //return an error message
-                Error = "The First Name cannot have more than 15 characters";
+                //return the private data
+                return mCustomerID;
             }
-
-            if (someFirstName.Length == 0)
+            set
             {
-                //otherwise return an error message
-                Error = "The First Name may not be blank!";
+                //set the value of the private data member
+                mCustomerID = value;
             }
-            return Error;
+        }
+        public string FirstName
+        {
+            get
+            {
+                //return the private data
+                return mFirstName;
+            }
+            set
+            {
+                //set the value of the private data member
+                mFirstName = value;
+            }
+        }
+        public string HouseNumber
+        {
+            get
+            {
+                //return the private data
+                return mHouseNumber;
+            }
+            set
+            {
+                //set the value of the private data member
+                mHouseNumber = value;
+            }
         }
 
-        public string ValidCustomerHouseNumber(string someHouseNumber)
+        public DateTime DOB
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the house number is more than 5 characters
-            if (someHouseNumber.Length > 5)
+            get
             {
-                //return an error message
-                Error = "The First Name cannot have more than 5 characters";
+                //return the private data
+                return mDOB;
             }
-
-            if (someHouseNumber.Length == 0)
+            set
             {
-                //otherwise return an error message
-                Error = "The First Name may not be blank!";
+                //set the value of the private data member
+                mDOB = value;
             }
-            return Error;
         }
 
-        public string ValidCustomerPhoneNo(string somePhoneNo)
+        public string PhoneNo
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the PhoneNo is more than 15 characters
-            if (somePhoneNo.Length > 15)
+            get
             {
-                //return an error message
-                Error = "The PhoneNo cannot have more than 15 characters";
+                //return the private data
+                return mPhoneNo;
             }
-
-            if (somePhoneNo.Length < 7)
+            set
             {
-                //return an error message
-                Error = "The PhoneNo cannot have less than 7 characters";
+                //set the value of the private data member
+                mPhoneNo = value;
             }
-
-            if (somePhoneNo.Length == 0)
+        }
+        public string PostCode
+        {
+            get
             {
-                //otherwise return an error message
-                Error = "The PhoneNo may not be blank!";
+                //return the private data
+                return mPostCode;
             }
-            return Error;
+            set
+            {
+                //set the value of the private data member
+                mPostCode = value;
+            }
+        }
+        public string StreetName
+        {
+            get
+            {
+                //return the private data
+                return mStreetName;
+            }
+            set
+            {
+                //set the value of the private data member
+                mStreetName = value;
+            }
+        }
+        public string Surname
+        {
+            get
+            {
+                //return the private data
+                return mSurname;
+            }
+            set
+            {
+                //set the value of the private data member
+                mSurname = value;
+            }
         }
 
-        public string ValidCustomerPostCode(string somePostCode)
+        public bool Find(int customerID)
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the PostCode is more than 7 characters
-            if (somePostCode.Length > 7)
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customer id to search for
+            DB.AddParameter("@CustomerId", customerID);
+            //execute  the stored procedure
+            DB.Execute("sproc_CustomerTable_FilterByCustomerID");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
             {
-                //return an error message
-                Error = "The PostCode cannot have more than 7 characters";
+                //copy the data from the database to the private data members
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mHouseNumber = Convert.ToString(DB.DataTable.Rows[0]["HouseNumber"]);
+                mDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["DOB"]);
+                mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
+                mPostCode = Convert.ToString(DB.DataTable.Rows[0]["PostCode"]);
+                mStreetName = Convert.ToString(DB.DataTable.Rows[0]["StreetName"]);
+                mSurname = Convert.ToString(DB.DataTable.Rows[0]["Surname"]);
+                //always return true
+                return true;
             }
-
-            if (somePostCode.Length < 7)
+            //if no record was found
+            else
             {
-                //return an error message
-                Error = "The PostCode cannot have less than 7 characters";
+                //return false indicating a problem
+                return false;
             }
-
-            if (somePostCode.Length == 0)
-            {
-                //otherwise return an error message
-                Error = "The PostCode may not be blank!";
-            }
-            return Error;
         }
 
-        public string ValidCustomerStreetName(string someStreetName)
-        {
-            //string variable to store the error message
-            string Error = "";
-            //if the Street Name is more than 10 characters
-            if (someStreetName.Length > 10)
-            {
-                //return an error message
-                Error = "The Street Name cannot have more than 10 characters";
-            }
-
-            if (someStreetName.Length < 3)
-            {
-                //return an error message
-                Error = "The Street Name cannot have less than 3 characters";
-            }
-
-            if (someStreetName.Length == 0)
-            {
-                //otherwise return an error message
-                Error = "The Street Name may not be blank!";
-            }
-            return Error;
-        }
-
-        public string ValidCustomerSurname(string someSurname)
-        {
-            //string variable to store the error message
-            string Error = "";
-            //if the Surname is more than 10 characters
-            if (someSurname.Length > 10)
-            {
-                //return an error message
-                Error = "The Surname cannot have more than 10 characters";
-            }
-
-            if (someSurname.Length < 3)
-            {
-                //return an error message
-                Error = "The Surname cannot have less than 3 characters";
-            }
-
-            if (someSurname.Length == 0)
-            {
-                //otherwise return an error message
-                Error = "The Surname may not be blank!";
-            }
-            return Error;
-        }
-
-        public string ValidCustomerDOB(DateTime someDOB)
+        public string Valid(string firstName, string houseNumber, string dOB, string phoneNo, string postCode, string streetName, string surname)
         {
             //create a string varibale to store the error
-            string Error = "";
-            if (someDOB < DateTime.Now.Date)
+            String Error = "";
+            //if the FirstName is blank
+            if (firstName.Length == 0)
             {
                 //record the error
-                Error = Error + "The date cannot be less than todays date";
+                Error = Error + "The house cannot be blank";
             }
-            if (someDOB > DateTime.Now.Date)
+            //if the First Name is greater than 15 characters
+            if (firstName.Length > 15)
             {
                 //record the error
-                Error = Error + "The date cannot be in the future";
+                Error = Error + "The First Name cannot be more than 15 characters";
             }
+            //if the HouseNumber is blank
+            if (houseNumber.Length == 0)
+            {
+                //record the error
+                Error = Error + "The FirstName cannot be blank";
+            }
+            //if the HouseNumber is greater than 5 characters
+            if (houseNumber.Length > 5)
+            {
+                //record the error
+                Error = Error + "The House Number cannot be more than 5 characters";
+            }
+            //return any error messages
             return Error;
         }
     }
