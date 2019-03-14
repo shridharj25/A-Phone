@@ -8,6 +8,13 @@ namespace PhoneTestProject
     [TestClass]
     public class PhoneTests
     {
+
+
+        //good test data
+      //  string OrderMadeBy= "Jhon"
+
+            
+
         //good test data
         //create some test data to pass to the method
         string PhoneMake = "Apple";
@@ -16,6 +23,7 @@ namespace PhoneTestProject
         string Price = "800";
         string ScreenSize = "7.4";
         string CameraQuality = "FHD";
+
 
        [TestMethod]
        public void InstanceOk()
