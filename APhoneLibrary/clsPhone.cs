@@ -131,8 +131,8 @@ namespace APhoneLibrary
             {
                 //copy the data from the database to the private data members
                 mPhoneId = Convert.ToInt32(DB.DataTable.Rows[0]["PhoneId"]);
-                mMake = Convert.ToString(DB.DataTable.Rows[0]["Make"]);
-                mModel = Convert.ToString(DB.DataTable.Rows[0]["Model"]);
+                mMake = Convert.ToString(DB.DataTable.Rows[0]["PhoneMake"]);
+                mModel = Convert.ToString(DB.DataTable.Rows[0]["PhoneModel"]);
                 mPhoneNo = Convert.ToString(DB.DataTable.Rows[0]["PhoneNo"]);
                 mPrice = Convert.ToString(DB.DataTable.Rows[0]["Price"]);
                 mScreenSize = Convert.ToString(DB.DataTable.Rows[0]["ScreenSize"]);
@@ -146,6 +146,50 @@ namespace APhoneLibrary
                 //return false indicating a problem 
                 return false;
             }
+        }
+
+        public string Valid(string phoneMake, string phoneModel, string phoneNo, string price, string screenSize, string cameraQuality)
+        {
+            //craete a string variable to stotre the error
+            string Error = "";
+            //if the phoneMake is blank
+            if (phoneMake.Length == 0)
+            {
+                //record the error
+                Error = Error + "The phone make cannot be blank : ";
+            }
+            //if the phone make is greater than 10 characters
+            if (phoneMake.Length > 10)
+            {
+                //record the errror 
+                Error = Error + "The phone make cannot be longer than 10 characters : ";
+            }
+            //if phonemodel is blank
+            if(phoneModel.Length == 0)
+            {
+                //record the error
+                Error = Error + "The phone model cannot be blank : ";
+            }
+            //if phone model is greater than 10 characters
+            if (phoneModel.Length > 10)
+            {
+                //record the error 
+                Error = Error + "The phone model cannot be more than 10 caharcters : ";
+            }
+            //if the phone number is blank
+            if (phoneNo.Length == 0)
+            {
+                //record the error
+                Error = Error + "The phone number cannot be blank : ";
+            }
+            //if the phone number does not equal 11 characters
+            if (phoneNo.Length != 11)
+            {
+                //record the error
+                Error = Error + "The phone number has to be 11 characters long : ";
+            }
+            //return any error messages 
+            return Error;
         }
     }
 }
