@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APhoneLibrary", "APhoneLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APhoneTestProject", "APhoneTestProject\APhoneTestProject.csproj", "{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APhoneBackOffice", "APhoneBackOffice\APhoneBackOffice.csproj", "{930D1F8C-ACB7-4D71-90FD-32C03E4057DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APhoneFrontEnd", "APhoneFrontEnd\APhoneFrontEnd.csproj", "{B261AC01-58A4-43F0-A61A-3197C11A1766}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B1B22BA-2ED3-4193-817A-1D60A634BDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930D1F8C-ACB7-4D71-90FD-32C03E4057DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930D1F8C-ACB7-4D71-90FD-32C03E4057DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930D1F8C-ACB7-4D71-90FD-32C03E4057DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930D1F8C-ACB7-4D71-90FD-32C03E4057DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B261AC01-58A4-43F0-A61A-3197C11A1766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B261AC01-58A4-43F0-A61A-3197C11A1766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B261AC01-58A4-43F0-A61A-3197C11A1766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B261AC01-58A4-43F0-A61A-3197C11A1766}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

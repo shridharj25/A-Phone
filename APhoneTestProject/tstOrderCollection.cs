@@ -8,6 +8,7 @@ namespace APhoneTestProject
     [TestClass]
     public class tstOrderCollection
     {
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -16,18 +17,18 @@ namespace APhoneTestProject
             //test to see that it exists
             Assert.IsNotNull(AllOrders);
         }
-        [TestMethod]
-        public void CountPropertyOK()
-        {
-            //Create an instance of the class i want to create
-            clsOrderCollection AllOrders = new clsOrderCollection();
-            //creating test data to assign to the property
-            Int32 SomeCount = 0;
-            //assign the data to the property 
-            AllOrders.Count = SomeCount;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllOrders.Count, SomeCount);
-        }
+        //[TestMethod]
+        //public void CountPropertyOK()
+        //{
+        //    //Create an instance of the class i want to create
+        //    clsOrderCollection AllOrders = new clsOrderCollection();
+        //    //creating test data to assign to the property
+        //    Int32 SomeCount = 3;
+        //    //assign the data to the property 
+        //    AllOrders.Count = SomeCount;
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(AllOrders.Count, SomeCount);
+        //}
         [TestMethod]
 
         public void AllOrderListOK()
@@ -103,13 +104,13 @@ namespace APhoneTestProject
             //testing to see if the two values are the same
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
-        //[TestMethod]
-        //public void TwoRecordsPresent()
-        //{
-        //    //Create an instance of the class i want to create
-        //    clsOrderCollection AllOrders = new clsOrderCollection();
-        //    //test to see that the two values are the same
-        //    Assert.AreEqual(AllOrders.Count, 2);
-        //}
+        [TestMethod]
+        public void TwoRecordsPresent()
+        {
+            //Create an instance of the class i want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.Count, 2);
+        }
     }
 }

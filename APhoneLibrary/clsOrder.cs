@@ -44,7 +44,7 @@ namespace APhoneLibrary
             //executing the stored procedure
             DB.Execute("sproc_tblOrder_FilterByOrderID");
             //if one record is found (there should be either one or zero)
-            if (DB.Count ==1)
+            if (DB.Count == 1)
             {
                 mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
