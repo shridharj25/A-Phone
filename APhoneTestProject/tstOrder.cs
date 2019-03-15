@@ -9,8 +9,12 @@ namespace OrderTestProject
     {
         //good test data
         //creating some test data to pass to the method
+        string OrderID = "1";
+        string CustomerID = "1";
+        string PhoneID = "1";
+        string TariffID = "1";
         string OrderMadeBy = "Jhon";
-        decimal TotalPrice = 700;
+        string TotalPrice = "700";
         string OrderDate = DateTime.Now.Date.ToString();
         //Start of Shridhar's Tests
         [TestMethod]
@@ -137,7 +141,7 @@ namespace OrderTestProject
             Int32 OrderID = 5;
             //invoke the method
             Found = AnOrder.Find(OrderID);
-            //check the address no
+            //check the OrderID
             if (AnOrder.OrderID != 5)
             {
                 OK = false;
@@ -158,7 +162,7 @@ namespace OrderTestProject
             Int32 CustomerID = 1;
             //invoke the method
             Found = AnOrder.Find(CustomerID);
-            //check the address no
+            //check the CustomerID no
             if (AnOrder.CustomerID != 1)
             {
                 OK = false;
@@ -179,7 +183,7 @@ namespace OrderTestProject
             Int32 TariffID = 1;
             //invoke the method
             Found = AnOrder.Find(TariffID);
-            //check the address no
+            //check the TariffID
             if (AnOrder.TariffID != 1)
             {
                 OK = false;
@@ -201,7 +205,7 @@ namespace OrderTestProject
             Int32 PhoneID = 1;
             //invoke the method
             Found = AnOrder.Find(PhoneID);
-            //check the address no
+            //check the Phone no
             if (AnOrder.PhoneID != 1)
             {
                 OK = false;
@@ -222,7 +226,7 @@ namespace OrderTestProject
             Int32 OrderNo = 1;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
-            //check the address no
+            //check the Phone no
             if (AnOrder.TotalPrice != 700)
             {
                 OK = false;
@@ -243,7 +247,7 @@ namespace OrderTestProject
             Int32 OrderNo = 1;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
-            //check the address no
+            //check the Phone no
             if (AnOrder.OrderMadeBy != "Jhon")
             {
                 OK = false;
@@ -280,9 +284,212 @@ namespace OrderTestProject
             //string variable to store any error message
             String Error = "";
             //invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderIDByMinLessOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string OrderID = "";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void OrderIDByMin()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string OrderID = "1";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void OrderIDByMinPlusOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string OrderID = "12";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void CustomerIDByMinLessOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string CustomerID = "";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void CustomerIDByMin()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string CustomerID = "1";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void CustomerIDByMinPlusOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string CustomerID = "12";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneIDByMinLessOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string PhoneID = "";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void PhoneIDByMin()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string PhoneID = "1";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void PhoneIDByMinPlusOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string PhoneID = "12";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        public void TariffIDByMinLessOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string TariffID = "";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TariffIDByMin()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string TariffID = "1";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void TariffIDByMinPlusOne()
+        {
+            //create an instance of the class
+            clsOrder AnOrder = new clsOrder();
+            //create a string variable to store the result of the validation
+            string Error = "";
+            //Boolean OK = false;
+            //creating test data to test the method
+            string TariffID = "12";
+            //Invoke the method
+            //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
+            //test to see if the result is OK 
+            Assert.AreEqual(Error, "");
+
         }
         [TestMethod]
         public void OrderMadeByMinLessOne()
@@ -294,7 +501,7 @@ namespace OrderTestProject
             //creating test data to test the method
             string OrderMadeBy = "";
             //Invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see if the result is OK 
             Assert.AreNotEqual(Error, "");
 
@@ -311,12 +518,12 @@ namespace OrderTestProject
             string OrderMadeBy = "j";
             //Invoke the method
             //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID,TariffID);
             //test to see if the result is OK 
             Assert.AreEqual(Error, "");
-
-           
+         
         }
+
         [TestMethod]
         public void OrderMadeByMinPlusOne()
         {
@@ -329,7 +536,7 @@ namespace OrderTestProject
             string OrderMadeBy = "jj";
             //Invoke the method
             //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see if the result is OK 
             Assert.AreEqual(Error, "");
 
@@ -345,10 +552,10 @@ namespace OrderTestProject
             //Boolean OK = false;
             //creating test data to test the method
             string OrderMadeBy = "";
-            OrderMadeBy = OrderMadeBy.PadRight(49, 'j'); 
+            OrderMadeBy = OrderMadeBy.PadRight(49, 'j');
             //Invoke the method
             //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see if the result is OK 
             Assert.AreEqual(Error, "");
 
@@ -367,7 +574,7 @@ namespace OrderTestProject
             OrderMadeBy = OrderMadeBy.PadRight(50, 'j');
             //Invoke the method
             //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see if the result is OK 
             Assert.AreEqual(Error, "");
 
@@ -386,7 +593,7 @@ namespace OrderTestProject
             OrderMadeBy = OrderMadeBy.PadRight(51, 'j');
             //Invoke the method
             //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see if the result is OK 
             Assert.AreNotEqual(Error, "");
         }
@@ -403,7 +610,7 @@ namespace OrderTestProject
             OrderMadeBy = OrderMadeBy.PadRight(25, 'j');
             //Invoke the method
             //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see if the result is OK 
             Assert.AreEqual(Error, "");
         }
@@ -420,7 +627,7 @@ namespace OrderTestProject
             OrderMadeBy = OrderMadeBy.PadRight(100, 'j');
             //Invoke the method
             //OK = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see if the result is OK 
             Assert.AreNotEqual(Error, "");
         }
@@ -441,7 +648,7 @@ namespace OrderTestProject
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -463,7 +670,7 @@ namespace OrderTestProject
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -482,7 +689,7 @@ namespace OrderTestProject
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -503,7 +710,7 @@ namespace OrderTestProject
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -524,7 +731,7 @@ namespace OrderTestProject
             //convert the date variable to a string variable
             string DateAdded = TestDate.ToString();
             //invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -539,8 +746,7 @@ namespace OrderTestProject
             //set the DateAdded to a non date value
             string OrderDate = "this is not a date!";
             //invoke the method
-            //invoke the method
-            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice);
+            Error = AnOrder.Valid(OrderDate, OrderMadeBy, TotalPrice, OrderID, CustomerID, PhoneID, TariffID);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }

@@ -44,7 +44,7 @@ namespace APhoneLibrary
             //executing the stored procedure
             DB.Execute("sproc_tblOrder_FilterByOrderID");
             //if one record is found (there should be either one or zero)
-            if (DB.Count ==1)
+            if (DB.Count == 1)
             {
                 mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
@@ -158,7 +158,7 @@ namespace APhoneLibrary
             }
         }
 
-        public string Valid(string orderDate, string orderMadeBy, decimal totalPrice)
+        public string Valid(string orderDate, string orderMadeBy, string totalPrice, string orderID, string customerID, string phoneID, string tariffID)
         {
             //create a string variable to store the error
             String Error = "";
@@ -195,6 +195,20 @@ namespace APhoneLibrary
             {
                 //record the error
                 Error = Error + "The date was not a valid date : ";
+            }
+            try
+            {
+                Int32 OrderIDTemp = Convert.ToInt32(orderID);
+                if(OrderIDTemp == 0)
+                {
+                    //restore the error
+                    Error = Error + "The OrderID cannot be blank";
+                }
+
+            }
+            catch
+            {
+                Error = Error + "The OrderID is not a number";
             }
             //return any error messages
             return Error;
