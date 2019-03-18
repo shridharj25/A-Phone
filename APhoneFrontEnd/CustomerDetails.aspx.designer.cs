@@ -13,15 +13,6 @@ namespace APhoneFrontEnd {
     public partial class CustomerDetails {
         
         /// <summary>
-        /// lstCustomers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstCustomers;
-        
-        /// <summary>
         /// btnApply control.
         /// </summary>
         /// <remarks>
@@ -56,5 +47,14 @@ namespace APhoneFrontEnd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSurname;
+        
+        /// <summary>
+        /// lstCustomers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstCustomers;
     }
 }

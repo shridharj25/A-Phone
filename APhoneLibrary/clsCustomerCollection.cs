@@ -8,6 +8,8 @@ namespace APhoneLibrary
     {
         //private data member for the list
         List<clsCustomer> mCustomerList = new List<clsCustomer>();
+        //private data member thisCustomer
+        clsCustomer mThisCustomer = new clsCustomer();
 
         public List<clsCustomer> CustomerList
         {
@@ -34,7 +36,21 @@ namespace APhoneLibrary
 
             }
         }
-        public clsCustomer ThisCustomer { get; set; }
+
+        //public property for ThisCustomer
+        public clsCustomer ThisCustomer
+        {
+            get
+            {
+                //return the private data
+                return mThisCustomer;
+            }
+            set
+            {
+                //set the private data
+                mThisCustomer = value;
+            }
+        }
 
         //constructor for the class
         public clsCustomerCollection()
@@ -70,7 +86,22 @@ namespace APhoneLibrary
             }
         }
 
-
+        public int Add()
+        {
+            //adds a new record to the databasebased on the value of mThisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@HouseNumber", mThisCustomer.HouseNumber);
+            DB.AddParameter("@DOB", mThisCustomer.DOB);
+            DB.AddParameter("@PhoneNo", mThisCustomer.PhoneNo);
+            DB.AddParameter("@PostCode", mThisCustomer.PostCode);
+            DB.AddParameter("@StreetName", mThisCustomer.StreetName);
+            DB.AddParameter("@Surname", mThisCustomer.Surname);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_CustomerTable_Insert");
+        }
 
     }
 }

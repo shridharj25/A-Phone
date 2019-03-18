@@ -95,6 +95,34 @@ namespace APhoneTestProject
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.FirstName = "Komal";
+            TestItem.HouseNumber = "20";
+            TestItem.DOB = DateTime.Now.Date;
+            TestItem.PhoneNo = "07867543762";
+            TestItem.PostCode = "LE5 6HY";
+            TestItem.StreetName = "Star City";
+            TestItem.Surname = "Mukesh";
+            //set ThisCustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key
+            TestItem.CustomerID = PrimaryKey;
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
 
     }
 }
