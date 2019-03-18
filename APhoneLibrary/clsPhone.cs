@@ -188,6 +188,18 @@ namespace APhoneLibrary
                 //record the error
                 Error = Error + "The phone number has to be 11 characters long : ";
             }
+            //if the camera quality is blank
+            if (cameraQuality.Length == 0)
+            {
+                //record the error
+                Error = Error + "The camera quality cannot be blank : ";
+            }
+            //if the camera quality is greater than 5 characters
+            if (cameraQuality.Length > 5)
+            {
+                //record the error
+                Error = Error + "The camera quality cannot be more than 5 characters long : ";
+            }
             //return any error messages 
             return Error;
         }

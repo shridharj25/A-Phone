@@ -750,6 +750,137 @@ namespace PhoneTestProject
             //Assert.IsTrue(OK);
             Assert.AreNotEqual(Error, "");
         }
+
+        ///<summary>
+        ///Attribute: Camera Quality
+        ///</summary>
+
+        [TestMethod]
+        public void PhoneCameraQualityMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            string Error = "";
+            //create some test data to pass to the method
+            string CameraQuality = ""; //this should fail
+            //invoke the method
+            //OK = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            Error = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneCameraQualityMin()
+        {
+            //create an instance of the class we want to create 
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            string Error = "";
+            //create some test data to pass to the method
+            string CameraQuality = "a"; //this should pass
+            //invoke the method
+            //OK = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            Error = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneCameraQualityMinPlusOne()
+        {
+            //create an instance of the class we want to create 
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            string Error = "";
+            //create some test data to pass to the method
+            string CameraQuality = "aa"; //this should pass
+            //invoke the method
+            //OK = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            Error = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneCameraQualityMaxLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            string Error = "";
+            //create some test data to pass to the method
+            string CameraQuality = "aaaa"; //this should pass
+            //invoke the method
+            //OK = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            Error = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneCameraQualityMax()
+        {
+            //create an instance of the class we want to create 
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            string Error = "";
+            //create some test data to pass to the method
+            string CameraQuality = "aaaaa"; //this should pass
+            //invoke the method
+            //OK = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            Error = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneCameraQualityMaxPlusOne()
+        {
+            //create an instance of the class we want to create 
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            string Error = "";
+            //create some test data to pass to the method
+            string CameraQuality = "aaaaaa"; //this should fail
+            //invoke the method
+            //OK = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            Error = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PhoneCameraQualityExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsPhone APhone = new clsPhone();
+            //boolean variable to store the result of the validation
+            //Boolean OK = false;
+            string Error = "";
+            //create some test data to pass to the method
+            string CameraQuality = "";
+            PhoneNo = PhoneNo.PadRight(250, 'a'); //this should fail
+            //invoke the method
+            //OK = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            Error = APhone.Valid(PhoneMake, PhoneModel, PhoneNo, Price, ScreenSize, CameraQuality);
+            //test to see that the result is correct
+            //Assert.IsTrue(OK);
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
 
