@@ -18,8 +18,7 @@
             </header>
  
             <article>
-                Your text here
-                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                &nbsp;<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </article>
  
@@ -37,11 +36,6 @@
             <footer>
                 
             </footer>
-             <asp:ListBox ID="lstPhones" runat="server" style="z-index: 1; left: 340px; top: 183px; position: absolute; height: 222px; width: 235px"></asp:ListBox>
-             <asp:Label ID="lblPhoneMake" runat="server" style="z-index: 1; left: 344px; top: 416px; position: absolute" Text="Please Enter A Phone Make"></asp:Label>
-             <asp:TextBox ID="txtPhoneMake" runat="server" style="z-index: 1; left: 341px; top: 445px; position: absolute; width: 221px"></asp:TextBox>
-             <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 341px; top: 488px; position: absolute" Text="Apply" />
-             <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; left: 482px; top: 491px; position: absolute" Text="Display All" />
         </form>
     </body>
 </html>
