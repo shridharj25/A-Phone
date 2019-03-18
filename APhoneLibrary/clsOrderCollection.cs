@@ -5,6 +5,11 @@ namespace APhoneLibrary
 {
     public class clsOrderCollection
     {
+        //private data member for the list
+        List<clsOrder> mOrdersList = new List<clsOrder>();
+        //private data member thisAddress
+        clsOrder mThisOrder = new clsOrder();
+
         public clsOrderCollection()
         {
 
@@ -43,7 +48,7 @@ namespace APhoneLibrary
             //creating an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
             //executing the stored procedure
-            DB.Execute("sproc_tblOrder_SelectAll");
+            DB.Execute("sproc_OrderTable_SelectAll");
             //get the count of records
             RecordCount = DB.Count;
             //while there are records to process 
@@ -106,7 +111,7 @@ namespace APhoneLibrary
 
         //}
 
-        List<clsOrder> mOrdersList = new List<clsOrder>();
+       // List<clsOrder> mOrdersList = new List<clsOrder>();
         public List <clsOrder> OrdersList
         {
             //getter sends data to requesting code
@@ -140,6 +145,36 @@ namespace APhoneLibrary
 
         }
 
-        public clsOrder ThisOrder { get; set; }
+        public clsOrder ThisOrder 
+        {
+            get
+            {
+                //return the private data
+                return mThisOrder;
+            }
+            set
+            {
+                //set the private data
+                mThisOrder = value;
+            }
+        }
+
+            public int Add()
+            {
+                //adds a new record to the database based on the values of thisAddress
+                //connect to the database
+                clsDataConnection DB = new clsDataConnection();
+                //set the parameters for the stored procedure
+                DB.AddParameter("@OrderID", mThisOrder.OrderID);
+                DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+                DB.AddParameter("@PhoneID", mThisOrder.PhoneID);
+                DB.AddParameter("@TariffID", mThisOrder.TariffID);
+                DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+                DB.AddParameter("@OrderMadeBy", mThisOrder.OrderMadeBy);
+                DB.AddParameter("@TotalPrice", mThisOrder.TotalPrice);
+                //execute the query returning the primary key value
+                return DB.Execute("sproc_OrderTable_Insert");
+            }
+        }
     }
-}
+    

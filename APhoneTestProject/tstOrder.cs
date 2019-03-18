@@ -265,9 +265,9 @@ namespace OrderTestProject
             //boolean variable to record if data is OK 
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 1;
+            Int32 OrderID = 1;
             //invoke the method
-            Found = AnOrder.Find(OrderNo);
+            Found = AnOrder.Find(OrderID);
             //check the  no
             if (AnOrder.OrderDate != Convert.ToDateTime("12/01/2009"))
             {
