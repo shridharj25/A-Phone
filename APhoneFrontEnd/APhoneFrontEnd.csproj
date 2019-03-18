@@ -68,12 +68,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCustomer.aspx" />
     <Content Include="APhoneStyleSheet.css" />
+    <Content Include="Customer.aspx" />
+    <Content Include="CustomerDetails.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="EditCustomerDetails.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCustomer.aspx.cs">
+      <DependentUpon>AddCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCustomer.aspx.designer.cs">
+      <DependentUpon>AddCustomer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="APhone.Master.cs">
       <DependentUpon>APhone.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -81,12 +92,33 @@
     <Compile Include="APhone.Master.designer.cs">
       <DependentUpon>APhone.Master</DependentUpon>
     </Compile>
+    <Compile Include="Customer.aspx.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer.aspx.designer.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditCustomerDetails.aspx.cs">
+      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditCustomerDetails.aspx.designer.cs">
+      <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -106,6 +138,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APhoneLibrary\APhoneLibrary.csproj">
+      <Project>{83f61f2a-6535-4ca7-a433-918b893316d4}</Project>
+      <Name>APhoneLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
