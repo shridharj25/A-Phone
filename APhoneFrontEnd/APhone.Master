@@ -1,19 +1,47 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="APhone.master.cs" Inherits="APhoneFrontEnd.APhone" %>
 
+
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
-</body>
+    <head id="Head1" runat="server">
+        <title>Sample Master Page</title>
+        <link href="APhoneStyleSheet.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <form id="form1" runat="server">
+ 
+             <header>
+              
+                APhone
+            </header>
+ 
+            <article>
+                Your text here
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </article>
+ 
+            <nav>
+                Navigation links here
+                <asp:Button ID="btnHome" runat="server" style="z-index: 1; left: 17px; top: 107px; position: absolute; width: 117px;" Text="Home" />
+                <asp:Button ID="btnOrders" runat="server" style="z-index: 1; left: 18px; top: 107px; position: absolute; width: 117px;" Text="Orders" />
+                <asp:Button ID="btnCustomer" runat="server" style="z-index: 1; left: 18px; top: 107px; position: absolute; width: 117px;" Text="Customers" OnClick="btnCustomer_Click" />
+                <asp:Button ID="btnTariff" runat="server" style="z-index: 1; left: 19px; top: 167px; position: absolute; width: 117px;" Text="Tariff" />
+                <asp:Button ID="btnPhones" runat="server" style="z-index: 1; left: 19px; top: 228px; position: absolute; width: 117px;" Text="Phones" />
+                <asp:Button ID="btnOrder" runat="server" style="z-index: 1; left: 19px; top: 302px; position: absolute; width: 117px;" Text="Order" />
+
+            </nav>
+ 
+            <footer>
+                
+            </footer>
+             <asp:ListBox ID="lstPhones" runat="server" style="z-index: 1; left: 340px; top: 183px; position: absolute; height: 222px; width: 235px"></asp:ListBox>
+             <asp:Label ID="lblPhoneMake" runat="server" style="z-index: 1; left: 344px; top: 416px; position: absolute" Text="Please Enter A Phone Make"></asp:Label>
+             <asp:TextBox ID="txtPhoneMake" runat="server" style="z-index: 1; left: 341px; top: 445px; position: absolute; width: 221px"></asp:TextBox>
+             <asp:Button ID="btnApply" runat="server" style="z-index: 1; left: 341px; top: 488px; position: absolute" Text="Apply" />
+             <asp:Button ID="btnDisplayAll" runat="server" style="z-index: 1; left: 482px; top: 491px; position: absolute" Text="Display All" />
+        </form>
+    </body>
 </html>
