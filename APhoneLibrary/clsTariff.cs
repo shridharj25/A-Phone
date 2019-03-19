@@ -11,6 +11,7 @@ namespace APhoneLibrary
         public decimal Price { get; set; }
         public string Texts { get; set; }
         public decimal Upfront { get; set; }
+        public bool Active { get; set; }
 
         public string ValidTariffCalls(string someTariffCalls)
         {
