@@ -27,9 +27,6 @@
             <asp:Button ID="btnPrevious" runat="server" style="z-index: 1; left: 266px; top: 519px; position: absolute" Text="Previous" />
 
             <asp:Button ID="btnNext" runat="server" style="z-index: 1; left: 722px; top: 518px; position: absolute" Text="Next" />
-    <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 715px; top: 265px; position: absolute" Text="Add" OnClick="btnAdd_Click" />
-    <asp:Button ID="btnDelete" runat="server" style="z-index: 1; left: 720px; top: 358px; position: absolute" Text="Delete" />
-    <asp:Button ID="btnEdit" runat="server" style="z-index: 1; left: 718px; top: 316px; position: absolute" Text="Edit" OnClick="btnEdit_Click" />
 
             </div>
 </asp:Content>
