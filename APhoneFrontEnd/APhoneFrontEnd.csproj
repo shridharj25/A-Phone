@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddCustomer.aspx" />
+    <Content Include="AnOrder.aspx" />
     <Content Include="APhoneStyleSheet.css" />
     <Content Include="Customer.aspx" />
     <Content Include="CustomerDetails.aspx" />
@@ -85,6 +86,13 @@
     </Compile>
     <Compile Include="AddCustomer.aspx.designer.cs">
       <DependentUpon>AddCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnOrder.aspx.cs">
+      <DependentUpon>AnOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnOrder.aspx.designer.cs">
+      <DependentUpon>AnOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="APhone.Master.cs">
       <DependentUpon>APhone.Master</DependentUpon>
