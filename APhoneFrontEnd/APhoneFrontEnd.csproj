@@ -74,7 +74,9 @@
     <Content Include="Customer.aspx" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DeleteOrder.aspx" />
     <Content Include="EditCustomerDetails.aspx" />
+    <Content Include="EditOrderDetails.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Order.aspx" />
     <Content Include="Web.config" />
@@ -122,12 +124,26 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeleteOrder.aspx.cs">
+      <DependentUpon>DeleteOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteOrder.aspx.designer.cs">
+      <DependentUpon>DeleteOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditCustomerDetails.aspx.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditCustomerDetails.aspx.designer.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditOrderDetails.aspx.cs">
+      <DependentUpon>EditOrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditOrderDetails.aspx.designer.cs">
+      <DependentUpon>EditOrderDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

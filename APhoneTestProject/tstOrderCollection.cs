@@ -142,5 +142,37 @@ namespace APhoneTestProject
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
 
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.OrderID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.PhoneID = 1;
+            TestItem.TariffID = 1;
+            TestItem.OrderMadeBy = "Jhon";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.TotalPrice = 700;
+            //set ThisAddress to the test data
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //delete the record
+            AllOrders.Delete();
+            //find the record
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
     }
 }

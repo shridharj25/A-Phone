@@ -42,5 +42,26 @@ namespace APhoneFrontEnd
             //Redirect to the data entry page 
             Response.Redirect("AnOrder.Aspx");
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //var to store the primary key value of the record to be deleted
+            Int32 OrderID;
+            //if a record has been selected from the list
+            if (lstOrders.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to delete
+                OrderID = Convert.ToInt32(lstOrders.SelectedValue);
+                //store the data in the session object
+                Session["OrderID"] = OrderID;
+                //redirect to the delete page
+                Response.Redirect("DeleteOrder.aspx");
+            }
+            else //if no record has been selected
+            {
+                //display an error
+                lblError.Text = "Please select a record to delete from the list";
+            }
+        }
     }
 }

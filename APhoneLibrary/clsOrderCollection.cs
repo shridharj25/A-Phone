@@ -177,6 +177,16 @@ namespace APhoneLibrary
             //mThisOrder.OrderID = 6;
             //return mThisOrder.OrderID;
         }
+        public void Delete()
+        {
+            //deletes the record pointed to by This Order
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            //execute the stored procedure
+            DB.Execute("sproc_tOrderTable_Delete");
+        }
     }
     }
     
