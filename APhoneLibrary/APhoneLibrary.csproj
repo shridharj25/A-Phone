@@ -47,6 +47,7 @@
     <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsPhone.cs" />
     <Compile Include="clsTariff.cs" />
+    <Compile Include="clsTariffCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
