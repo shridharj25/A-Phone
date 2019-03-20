@@ -69,10 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddCustomer.aspx" />
+    <Content Include="AddPhone.aspx" />
     <Content Include="APhoneStyleSheet.css" />
     <Content Include="Customer.aspx" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DeletePhone.aspx" />
     <Content Include="EditCustomerDetails.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Order.aspx" />
@@ -85,6 +87,13 @@
     </Compile>
     <Compile Include="AddCustomer.aspx.designer.cs">
       <DependentUpon>AddCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPhone.aspx.cs">
+      <DependentUpon>AddPhone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPhone.aspx.designer.cs">
+      <DependentUpon>AddPhone.aspx</DependentUpon>
     </Compile>
     <Compile Include="APhone.Master.cs">
       <DependentUpon>APhone.Master</DependentUpon>
@@ -113,6 +122,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeletePhone.aspx.cs">
+      <DependentUpon>DeletePhone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeletePhone.aspx.designer.cs">
+      <DependentUpon>DeletePhone.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditCustomerDetails.aspx.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
