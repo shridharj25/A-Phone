@@ -18,5 +18,10 @@ namespace APhoneFrontEnd
         {
             Response.Redirect("Customer.aspx");
         }
+
+        protected void btnPhones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

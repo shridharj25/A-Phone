@@ -10,12 +10,10 @@ namespace APhoneFrontEnd
 {
     public partial class AddCustomer : System.Web.UI.Page
     {
-        Int32 CustomerID;
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         //function for adding new records
         void Add()
         {

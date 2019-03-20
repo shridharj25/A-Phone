@@ -103,5 +103,20 @@ namespace APhoneLibrary
             return DB.Execute("sproc_CustomerTable_Insert");
         }
 
+        public void Delete()
+        {
+            //deletes the record pointed to by thisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            //execute the stored procedure
+            DB.Execute("sproc_CustomerTable_Delete");
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

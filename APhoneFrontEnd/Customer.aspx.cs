@@ -36,6 +36,7 @@ namespace APhoneFrontEnd
 
         }
 
+
         //event handler for the add button
         protected void btnAdd_Click(object sender, EventArgs e)
         {
@@ -47,7 +48,32 @@ namespace APhoneFrontEnd
 
         protected void btnApply_Click(object sender, EventArgs e)
         {
+             
 
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            //var to store the primary key value of the record to be deleted
+            Int32 CustomerID;
+            //if a record has been selected from the list
+            if (lstCustomers.SelectedIndex != -1)
+            {
+
+                //get the primary key value of the record to delete
+                CustomerID = Convert.ToInt32(lstCustomers.SelectedValue);
+                //store the data in the session object
+                Session["CustomerID"] = CustomerID;
+                //redirect to the delete page
+                Response.Redirect("DeleteCustomer.aspx");
+            }
+            else //if no record has been selected
+            {
+                //display an error
+                lblError.Text = "Please select a record to delete from the list";
+            }
+
+        }
+
     }
 }

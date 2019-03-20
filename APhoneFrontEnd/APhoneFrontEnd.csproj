@@ -71,8 +71,8 @@
     <Content Include="AddCustomer.aspx" />
     <Content Include="APhoneStyleSheet.css" />
     <Content Include="Customer.aspx" />
-    <Content Include="CustomerDetails.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DeleteCustomer.aspx" />
     <Content Include="EditCustomerDetails.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Order.aspx" />
@@ -100,19 +100,19 @@
     <Compile Include="Customer.aspx.designer.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerDetails.aspx.cs">
-      <DependentUpon>CustomerDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerDetails.aspx.designer.cs">
-      <DependentUpon>CustomerDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteCustomer.aspx.cs">
+      <DependentUpon>DeleteCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteCustomer.aspx.designer.cs">
+      <DependentUpon>DeleteCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditCustomerDetails.aspx.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
