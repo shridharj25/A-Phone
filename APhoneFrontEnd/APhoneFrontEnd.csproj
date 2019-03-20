@@ -70,9 +70,13 @@
   <ItemGroup>
     <Content Include="AddCustomer.aspx" />
 
+    <Content Include="AddPhone.aspx" />
+
+
     <Content Include="AnOrder.aspx" />
 
     <Content Include="AddTariff.aspx" />
+
 
     <Content Include="APhoneStyleSheet.css" />
     <Content Include="App_Data\APhone.mdf" />
@@ -82,7 +86,11 @@
     <Content Include="Customer.aspx" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="Default.aspx" />
+
+    <Content Include="DeletePhone.aspx" />
+
     <Content Include="DeleteOrder.aspx" />
+
     <Content Include="EditCustomerDetails.aspx" />
 
     <Content Include="EditOrderDetails.aspx" />
@@ -103,6 +111,14 @@
       <DependentUpon>AddCustomer.aspx</DependentUpon>
     </Compile>
 
+    <Compile Include="AddPhone.aspx.cs">
+      <DependentUpon>AddPhone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPhone.aspx.designer.cs">
+      <DependentUpon>AddPhone.aspx</DependentUpon>
+
+
     <Compile Include="AnOrder.aspx.cs">
       <DependentUpon>AnOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -116,6 +132,7 @@
     </Compile>
     <Compile Include="AddTariff.aspx.designer.cs">
       <DependentUpon>AddTariff.aspx</DependentUpon>
+
 
     </Compile>
     <Compile Include="APhone.Master.cs">
@@ -146,12 +163,21 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+
+    <Compile Include="DeletePhone.aspx.cs">
+      <DependentUpon>DeletePhone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeletePhone.aspx.designer.cs">
+      <DependentUpon>DeletePhone.aspx</DependentUpon>
+
     <Compile Include="DeleteOrder.aspx.cs">
       <DependentUpon>DeleteOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DeleteOrder.aspx.designer.cs">
       <DependentUpon>DeleteOrder.aspx</DependentUpon>
+
     </Compile>
     <Compile Include="EditCustomerDetails.aspx.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
