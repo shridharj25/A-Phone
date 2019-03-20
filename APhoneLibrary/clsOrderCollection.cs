@@ -185,7 +185,7 @@ namespace APhoneLibrary
             //set the parameters for the stored procedure
             DB.AddParameter("@OrderID", mThisOrder.OrderID);
             //execute the stored procedure
-            DB.Execute("sproc_tOrderTable_Delete");
+            DB.Execute("sproc_OrderTable_Delete");
         }
     }
     }

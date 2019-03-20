@@ -104,14 +104,14 @@ namespace APhoneTestProject
             //testing to see if the two values are the same
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
-        [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //Create an instance of the class i want to create
-            clsOrderCollection AllOrders = new clsOrderCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllOrders.Count, 2);
-        }
+       
+        //public void TwoRecordsPresent()
+        //{
+        //    //Create an instance of the class i want to create
+        //    clsOrderCollection AllOrders = new clsOrderCollection();
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(AllOrders.Count, 7);
+        //}
 
         [TestMethod]
         public void AddMethodOK()
