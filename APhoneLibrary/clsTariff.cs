@@ -4,13 +4,112 @@ namespace APhoneLibrary
 {
     public class clsTariff
     {
-        public string Calls { get; set; }
-        public string Data { get; set; }
-        public int TariffID { get; set; }
-        public string Network { get; set; }
-        public decimal Price { get; set; }
-        public string Texts { get; set; }
-        public decimal Upfront { get; set; }
+        private Int32 mTariffID;
+        private String mTariffCalls;
+        private String mTariffTexts;
+        private String mTariffData;
+        private String mTariffNetwork;
+        private Decimal mTariffPrice;
+        private Decimal mTariffUpfront;
+        public int TariffID
+        {
+            get
+            {
+                return mTariffID;
+            }
+            set
+            {
+                mTariffID = value;
+            }
+        }
+        public string TariffCalls
+        {
+            get
+            {
+                return mTariffCalls;
+            }
+            set
+            {
+                mTariffCalls = value;
+            }
+        }
+        public string TariffData
+        {
+            get
+            {
+                return mTariffData;
+            }
+            set
+            {
+                mTariffData = value;
+            }
+        }
+        public string TariffNetwork
+        {
+            get
+            {
+                return mTariffNetwork;
+            }
+            set
+            {
+                mTariffNetwork = value;
+            }
+        }
+        public decimal TariffPrice
+        {
+            get
+            {
+                return mTariffPrice;
+            }
+            set
+            {
+                mTariffPrice = value;
+            }
+        }
+        public string TariffTexts
+        {
+            get
+            {
+                return mTariffTexts;
+            }
+            set
+            {
+                mTariffTexts = value;
+            }
+        }
+        public decimal TariffUpfront
+        {
+            get
+            {
+                return mTariffUpfront;
+            }
+            set
+            {
+                mTariffUpfront = value;
+            }
+        }
+
+        public bool Find(int TariffID)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@TariffID", TariffID);
+            DB.Execute("sproc_TariffTable_FilterByTariffID");
+            if (DB.Count == 1)
+            {
+                mTariffID = Convert.ToInt32(DB.DataTable.Rows[0]["TariffID"]);
+                mTariffCalls = Convert.ToString(DB.DataTable.Rows[0]["TariffCalls"]);
+                mTariffTexts = Convert.ToString(DB.DataTable.Rows[0]["TariffTexts"]);
+                mTariffData = Convert.ToString(DB.DataTable.Rows[0]["TariffData"]);
+                mTariffNetwork = Convert.ToString(DB.DataTable.Rows[0]["TariffNetwork"]);
+                mTariffPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["TariffPrice"]);
+                mTariffUpfront = Convert.ToDecimal (DB.DataTable.Rows[0]["TariffUpfront"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public string ValidTariffCalls(string someTariffCalls)
         {

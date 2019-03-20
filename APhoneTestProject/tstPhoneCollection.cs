@@ -77,5 +77,60 @@ namespace APhoneTestProject
             //test to see that the two values are the same
             Assert.AreEqual(AllPhones.ThisPhone, TestPhone);
         }
+
+        [TestMethod]
+        public void ListAndCountOk()
+        {
+            //create an instance of the class we wish to create
+            clsPhoneCollection AllPhones = new clsPhoneCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsPhone> TestList = new List<clsPhone>();
+            //add an item to the list
+            //create the item test data
+            clsPhone TestItem = new clsPhone();
+            //set its properties
+            TestItem.PhoneId = 1;
+            TestItem.Make = "Apple";
+            TestItem.Model = "Iphone X";
+            TestItem.PhoneNo = "07749493975";
+            TestItem.Price = "500";
+            TestItem.ScreenSize = "7";
+            TestItem.CameraQuality = "HD";
+            //add the item to the list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllPhones.PhoneList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPhones.Count, TestList.Count);
+        }
+
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            //create an instance of the class we want to create
+            clsPhoneCollection AllPhones = new clsPhoneCollection();
+            //create the item of test data 
+            clsPhone TestItem = new clsPhone();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.PhoneId = 1;
+            TestItem.Make = "Apple";
+            TestItem.Model = "Iphone X";
+            TestItem.PhoneNo = "07749493975";
+            TestItem.Price = "500";
+            TestItem.ScreenSize = "7";
+            TestItem.CameraQuality = "HD";
+            //set ThisPhone to the test data
+            PrimaryKey = AllPhones.Add();
+            //set the primary key of the test data 
+            TestItem.PhoneId = PrimaryKey;
+            //find the record
+            AllPhones.ThisPhone.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPhones.ThisPhone, TestItem);
+        }
+
     }
 }

@@ -35,5 +35,19 @@ namespace APhoneFrontEnd
             lstCustomers.DataBind();
 
         }
+
+        //event handler for the add button
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            //store -1 into the session object to indicate this is a new record
+            Session["CusomterID"] = -1;
+            //redirect to the data entry page
+            Response.Redirect("AddCustomer.aspx");
+        }
+
+        protected void btnApply_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
