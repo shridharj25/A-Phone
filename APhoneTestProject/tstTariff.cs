@@ -25,9 +25,9 @@ namespace TariffTestProject
             //create some test data 
             string callLimit = "Unlimited";
             //assign the data to property
-            ATariff.Calls = callLimit;
+            ATariff.TariffCalls = callLimit;
             //test to see that the two values are the same
-            Assert.AreEqual(ATariff.Calls, callLimit);
+            Assert.AreEqual(ATariff.TariffCalls, callLimit);
         }
 
         [TestMethod]
@@ -38,9 +38,9 @@ namespace TariffTestProject
             //create some test data 
             string dataLimit = "20GB";
             //assign the data to property
-            ATariff.Data = dataLimit;
+            ATariff.TariffData = dataLimit;
             //test to see that the two values are the same
-            Assert.AreEqual(ATariff.Data, dataLimit);
+            Assert.AreEqual(ATariff.TariffData, dataLimit);
         }
 
         [TestMethod]
@@ -64,9 +64,9 @@ namespace TariffTestProject
             //create some test data 
             string tariffNetwork = "O2";
             //assign the data to property
-            ATariff.Network = tariffNetwork;
+            ATariff.TariffNetwork = tariffNetwork;
             //test to see that the two values are the same
-            Assert.AreEqual(ATariff.Network, tariffNetwork);
+            Assert.AreEqual(ATariff.TariffNetwork, tariffNetwork);
         }
 
         [TestMethod]
@@ -77,9 +77,9 @@ namespace TariffTestProject
             //create some test data 
             decimal tariffPrice = 45.00m;
             //assign the data to property
-            ATariff.Price = tariffPrice;
+            ATariff.TariffPrice = tariffPrice;
             //test to see that the two values are the same
-            Assert.AreEqual(ATariff.Price, tariffPrice);
+            Assert.AreEqual(ATariff.TariffPrice, tariffPrice);
         }
 
         [TestMethod]
@@ -90,9 +90,9 @@ namespace TariffTestProject
             //create some test data 
             string tariffTexts = "Unlimited";
             //assign the data to property
-            ATariff.Texts = tariffTexts;
+            ATariff.TariffTexts = tariffTexts;
             //test to see that the two values are the same
-            Assert.AreEqual(ATariff.Texts, tariffTexts);
+            Assert.AreEqual(ATariff.TariffTexts, tariffTexts);
         }
 
         [TestMethod]
@@ -103,9 +103,36 @@ namespace TariffTestProject
             //create some test data 
             decimal tariffUpfront = 90.00m;
             //assign the data to property
-            ATariff.Upfront = tariffUpfront;
+            ATariff.TariffUpfront = tariffUpfront;
             //test to see that the two values are the same
-            Assert.AreEqual(ATariff.Upfront, tariffUpfront);
+            Assert.AreEqual(ATariff.TariffUpfront, tariffUpfront);
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class
+            clsTariff ATariff = new clsTariff();
+            Boolean Found = false;
+            Int32 TariffID = 1;
+            Found = ATariff.Find(TariffID);
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestTariffNotFound()
+        {
+            //create an instance of the class
+            clsTariff ATariff = new clsTariff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 TariffID = 21;
+            Found = ATariff.Find(TariffID);
+            if (ATariff.TariffID !=21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]

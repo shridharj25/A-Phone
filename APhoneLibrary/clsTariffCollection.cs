@@ -6,6 +6,7 @@ namespace APhoneLibrary
     {
         //private data member for the list
         List<clsTariff> mTariffList = new List<clsTariff>();
+        clsTariff mThisTariff = new clsTariff();
 
         //constructor for the class
         public clsTariffCollection()
@@ -13,27 +14,25 @@ namespace APhoneLibrary
             //create the items of test data
             clsTariff TestItem = new clsTariff();
             //set its properties
-            TestItem.Active = true;
             TestItem.TariffID = 1;
-            TestItem.Texts = "500";
-            TestItem.Calls = "Unlimited";
-            TestItem.Data = "20GB";
-            TestItem.Network = "O2";
-            TestItem.Price = 30.00m;
-            TestItem.Upfront = 50.00m;
+            TestItem.TariffTexts = "500";
+            TestItem.TariffCalls = "Unlimited";
+            TestItem.TariffData = "20GB";
+            TestItem.TariffNetwork = "O2";
+            TestItem.TariffPrice = 30.00m;
+            TestItem.TariffUpfront = 50.00m;
             //add the item to the test list
             mTariffList.Add(TestItem);
             //re initialise the object for some new data
             TestItem = new clsTariff();
             //set its properties
-            TestItem.Active = true;
             TestItem.TariffID = 1;
-            TestItem.Texts = "2000";
-            TestItem.Calls = "Unlimited";
-            TestItem.Data = "50GB";
-            TestItem.Network = "Vodafone";
-            TestItem.Price = 15.99m;
-            TestItem.Upfront = 10.00m;
+            TestItem.TariffTexts = "2000";
+            TestItem.TariffCalls = "Unlimited";
+            TestItem.TariffData = "50GB";
+            TestItem.TariffNetwork = "Vodafone";
+            TestItem.TariffPrice = 15.99m;
+            TestItem.TariffUpfront = 10.00m;
             //add the item to the test list
             mTariffList.Add(TestItem);
         }
@@ -52,7 +51,17 @@ namespace APhoneLibrary
             }
         }
 
-        public clsTariff ThisTariff { get; set; }
+        public clsTariff ThisTariff
+        {
+            get
+            {
+                return mThisTariff;
+            }
+            set
+            {
+                mThisTariff = value;
+            }
+        }
 
         public int Count
         {
@@ -65,6 +74,19 @@ namespace APhoneLibrary
             {
                 //We shall worry about this later
             }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@TariffTexts", mThisTariff.TariffTexts);
+            DB.AddParameter("@TariffCalls", mThisTariff.TariffCalls);
+            DB.AddParameter("@TariffData", mThisTariff.TariffData);
+            DB.AddParameter("@TariffNetwork", mThisTariff.TariffNetwork);
+            DB.AddParameter("@TariffPrice", mThisTariff.TariffPrice);
+            DB.AddParameter("@TariffUpfront", mThisTariff.TariffUpfront);
+            return DB.Execute("sproc_TariffTable_Add");
+
         }
     }
 }
