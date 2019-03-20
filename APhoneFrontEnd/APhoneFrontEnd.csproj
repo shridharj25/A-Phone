@@ -69,7 +69,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddCustomer.aspx" />
+
+    <Content Include="AnOrder.aspx" />
+
     <Content Include="AddTariff.aspx" />
+
     <Content Include="APhoneStyleSheet.css" />
     <Content Include="App_Data\APhone.mdf" />
     <Content Include="App_Data\APhone_log.ldf">
@@ -78,8 +82,13 @@
     <Content Include="Customer.aspx" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DeleteOrder.aspx" />
     <Content Include="EditCustomerDetails.aspx" />
+
+    <Content Include="EditOrderDetails.aspx" />
+
     <Content Include="EditTariff.aspx" />
+
     <Content Include="Global.asax" />
     <Content Include="Order.aspx" />
     <Content Include="Tariff.aspx" />
@@ -93,12 +102,21 @@
     <Compile Include="AddCustomer.aspx.designer.cs">
       <DependentUpon>AddCustomer.aspx</DependentUpon>
     </Compile>
+
+    <Compile Include="AnOrder.aspx.cs">
+      <DependentUpon>AnOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnOrder.aspx.designer.cs">
+      <DependentUpon>AnOrder.aspx</DependentUpon>
+
     <Compile Include="AddTariff.aspx.cs">
       <DependentUpon>AddTariff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddTariff.aspx.designer.cs">
       <DependentUpon>AddTariff.aspx</DependentUpon>
+
     </Compile>
     <Compile Include="APhone.Master.cs">
       <DependentUpon>APhone.Master</DependentUpon>
@@ -128,6 +146,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeleteOrder.aspx.cs">
+      <DependentUpon>DeleteOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteOrder.aspx.designer.cs">
+      <DependentUpon>DeleteOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditCustomerDetails.aspx.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -135,12 +160,21 @@
     <Compile Include="EditCustomerDetails.aspx.designer.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>
     </Compile>
+
+    <Compile Include="EditOrderDetails.aspx.cs">
+      <DependentUpon>EditOrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditOrderDetails.aspx.designer.cs">
+      <DependentUpon>EditOrderDetails.aspx</DependentUpon>
+
     <Compile Include="EditTariff.aspx.cs">
       <DependentUpon>EditTariff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditTariff.aspx.designer.cs">
       <DependentUpon>EditTariff.aspx</DependentUpon>
+
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
