@@ -9,5 +9,8 @@
        <asp:ListBox ID="lstTariff" runat="server" Height="416px" Width="525px"></asp:ListBox>
        
 
+        <asp:Button ID="btnAdd" runat="server" style=" position: absolute; top: 490px; left: 368px;" Text="Add" OnClick="btnAdd_Click" />
+       
+
         </div>
 </asp:Content>

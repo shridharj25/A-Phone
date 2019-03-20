@@ -27,5 +27,11 @@ namespace APhoneFrontEnd
             lstTariff.DataTextField = "Network";
             lstTariff.DataBind();
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Session["TariffID"] = -1;
+
+        }
     }
 }
