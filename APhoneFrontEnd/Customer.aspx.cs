@@ -12,13 +12,8 @@ namespace APhoneFrontEnd
         //this function handles the load event for the page
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if this is the first timr the page is displayed
-            if (IsPostBack == false)
-            {
-                //update the list box
-                DisplayCustomers();
-            }
-
+            //populate the list of customers
+            DisplayCustomers();
         }
 
         void DisplayCustomers()
@@ -61,10 +56,12 @@ namespace APhoneFrontEnd
             {
 
                 //get the primary key value of the record to delete
+
                 CustomerID = Convert.ToInt32(lstCustomers.SelectedValue);
                 //store the data in the session object
                 Session["CustomerID"] = CustomerID;
                 //redirect to the delete page
+
                 Response.Redirect("DeleteCustomer.aspx");
             }
             else //if no record has been selected
@@ -75,5 +72,26 @@ namespace APhoneFrontEnd
 
         }
 
+        //event handler for the edit button
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            //var to store the primary key value of the record to be edited
+            Int32 CustomerID;
+            //if a record has been selected from the list
+            if (lstCustomers.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to edit
+                CustomerID = Convert.ToInt32(lstCustomers.SelectedValue);
+                //store the data in the session object
+                Session["CustomerID"] = CustomerID;
+                //redirect to the edit page
+                Response.Redirect("AddCustomer.aspx");
+            }
+            else //if no record has been selected
+            {
+                //display an error
+                lblError.Text = "Please select a record to delete from the list";
+            }
+        }
     }
 }

@@ -116,7 +116,20 @@ namespace APhoneLibrary
 
         public void Update()
         {
-            throw new NotImplementedException();
+            //update an existing record based on the values of thisCustomer
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("@FirstName", mThisCustomer.FirstName);
+            DB.AddParameter("@HouseNumber", mThisCustomer.HouseNumber);
+            DB.AddParameter("@DOB", mThisCustomer.DOB);
+            DB.AddParameter("@PhoneNo", mThisCustomer.PhoneNo);
+            DB.AddParameter("@PostCode", mThisCustomer.PostCode);
+            DB.AddParameter("@StreetName", mThisCustomer.StreetName);
+            DB.AddParameter("@Surname", mThisCustomer.Surname);
+            //execute the stored procedure
+            DB.Execute("sproc_CustomerTable_Update");
         }
     }
 }
