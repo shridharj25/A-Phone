@@ -28,7 +28,7 @@
                 <asp:Button ID="btnOrders" runat="server" style="z-index: 1; left: 18px; top: 107px; position: absolute; width: 117px;" Text="Orders" />
                 <asp:Button ID="btnCustomer" runat="server" style="z-index: 1; left: 18px; top: 107px; position: absolute; width: 117px;" Text="Customers" OnClick="btnCustomer_Click" />
                 <asp:Button ID="btnTariff" runat="server" style="z-index: 1; left: 19px; top: 167px; position: absolute; width: 117px;" Text="Tariff" />
-                <asp:Button ID="btnPhones" runat="server" style="z-index: 1; left: 19px; top: 228px; position: absolute; width: 117px;" Text="Phones" />
+                <asp:Button ID="btnPhones" runat="server" style="z-index: 1; left: 19px; top: 228px; position: absolute; width: 117px;" Text="Phones" OnClick="btnPhones_Click" />
                 <asp:Button ID="btnOrder" runat="server" style="z-index: 1; left: 19px; top: 302px; position: absolute; width: 117px;" Text="Order" />
 
             </nav>

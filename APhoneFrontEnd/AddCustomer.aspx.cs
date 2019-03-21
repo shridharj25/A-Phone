@@ -10,11 +10,21 @@ namespace APhoneFrontEnd
 {
     public partial class AddCustomer : System.Web.UI.Page
     {
+        //variable store the primary key with page level scope
         Int32 CustomerID;
+
+        //event handler for the page load event
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //get the number of the customer to be processed
+            CustomerID = Convert.ToInt32(Session["CustomerID"]);
+            if (IsPostBack == false)
+            {
+                //populate the list of customers
+                //DisplayCustomers();
+            }
         }
+
 
         //function for adding new records
         void Add()

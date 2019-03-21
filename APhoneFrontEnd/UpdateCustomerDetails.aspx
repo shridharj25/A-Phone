@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/APhone.Master" AutoEventWireup="true" CodeBehind="EditCustomerDetails.aspx.cs" Inherits="APhoneFrontEnd.EditCustomerDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/APhone.Master" AutoEventWireup="true" CodeBehind="UpdateCustomerDetails.aspx.cs" Inherits="APhoneFrontEnd.EditCustomerDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
        <div style="height: 486px">
         
@@ -27,11 +27,13 @@
 
         <asp:TextBox ID="txtPostCode" runat="server" style="z-index: 1; left: 617px; top: 362px; position: absolute"></asp:TextBox>
 
-        <asp:Button ID="btnUpdate" runat="server" style="z-index: 1; left: 433px; top: 417px; position: absolute" Text="Update" />
-        <asp:Button ID="btnBack" runat="server" style="z-index: 1; left: 720px; top: 421px; position: absolute; width: 60px;" Text="Back" OnClick="btnBack_Click"/>
+        <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 433px; top: 417px; position: absolute; width: 33px;" Text="OK" OnClick="btnOK_Click" />
+        <asp:Button ID="btnBack" runat="server" style="z-index: 1; left: 720px; top: 421px; position: absolute; width: 60px;" Text="Back" />
 
            <asp:Label ID="lblSurname" runat="server" style="z-index: 1; left: 398px; top: 183px; position: absolute" Text="Surname"></asp:Label>
            <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 396px; top: 143px; position: absolute" Text="First Name"></asp:Label>
+
+           <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 374px; top: 476px; position: absolute"></asp:Label>
 
         </div>
 </asp:Content>
