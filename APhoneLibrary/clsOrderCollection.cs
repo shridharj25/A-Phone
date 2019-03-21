@@ -161,20 +161,32 @@ namespace APhoneLibrary
 
             public int Add()
             {
-                //adds a new record to the database based on the values of thisAddress
-                //connect to the database
-                clsDataConnection DB = new clsDataConnection();
-                //set the parameters for the stored procedure
-                DB.AddParameter("@OrderID", mThisOrder.OrderID);
-                DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
-                DB.AddParameter("@PhoneID", mThisOrder.PhoneID);
-                DB.AddParameter("@TariffID", mThisOrder.TariffID);
-                DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
-                DB.AddParameter("@OrderMadeBy", mThisOrder.OrderMadeBy);
-                DB.AddParameter("@TotalPrice", mThisOrder.TotalPrice);
-                //execute the query returning the primary key value
-                return DB.Execute("sproc_OrderTable_Insert");
-            }
+            //adds a new record to the database based on the values of thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+           // set the parameters for the stored procedure
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@PhoneID", mThisOrder.PhoneID);
+            DB.AddParameter("@TariffID", mThisOrder.TariffID);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@OrderMadeBy", mThisOrder.OrderMadeBy);
+            DB.AddParameter("@TotalPrice", mThisOrder.TotalPrice);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_OrderTable_Insert");
+
+            //mThisOrder.OrderID = 6;
+            //return mThisOrder.OrderID;
         }
+        public void Delete()
+        {
+            //deletes the record pointed to by This Order
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderID);
+            //execute the stored procedure
+            DB.Execute("sproc_OrderTable_Delete");
+        }
+    }
     }
     

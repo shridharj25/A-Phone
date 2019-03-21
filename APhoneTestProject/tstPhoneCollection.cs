@@ -123,6 +123,8 @@ namespace APhoneTestProject
             TestItem.ScreenSize = "7";
             TestItem.CameraQuality = "HD";
             //set ThisPhone to the test data
+            AllPhones.ThisPhone = TestItem;
+            //add the record
             PrimaryKey = AllPhones.Add();
             //set the primary key of the test data 
             TestItem.PhoneId = PrimaryKey;
@@ -132,5 +134,37 @@ namespace APhoneTestProject
             Assert.AreEqual(AllPhones.ThisPhone, TestItem);
         }
 
+        [TestMethod]
+        public void DeleteMethodOk()
+        {
+            //create an instance of the class we want to create
+            clsPhoneCollection AllPhones = new clsPhoneCollection();
+            //create the item of test data 
+            clsPhone TestItem = new clsPhone();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.PhoneId = 1;
+            TestItem.Make = "Apple";
+            TestItem.Model = "Iphone X";
+            TestItem.PhoneNo = "07749493975";
+            TestItem.Price = "500";
+            TestItem.ScreenSize = "7";
+            TestItem.CameraQuality = "HD";
+            //set ThisPhone to the test data
+            AllPhones.ThisPhone = TestItem;
+            //add the record
+            PrimaryKey = AllPhones.Add();
+            //set the primary key of the test data 
+            TestItem.PhoneId = PrimaryKey;
+            //find the record
+            AllPhones.ThisPhone.Find(PrimaryKey);
+            //delete the record
+            AllPhones.Delete();
+            //now find the record
+            Boolean Found = AllPhones.ThisPhone.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+        }
     }
 }

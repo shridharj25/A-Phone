@@ -104,5 +104,16 @@ namespace APhoneLibrary
             //execute the stored procedure returning the primary key
             return DB.Execute("sproc_PhoneTable_Add");
         }
+
+        public void Delete()
+        {
+            //deletes the record pointed to by thisPhone
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored proceudre
+            DB.AddParameter("@PhoneID", mThisPhone.PhoneId);
+            //execute the stored procedure
+            DB.Execute("sproc_PhoneTable_Delete");
+        }
     }
 }
