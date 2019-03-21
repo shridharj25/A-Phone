@@ -75,5 +75,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APhoneLibrary\APhoneLibrary.csproj">
+      <Project>{83f61f2a-6535-4ca7-a433-918b893316d4}</Project>
+      <Name>APhoneLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
