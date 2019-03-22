@@ -78,6 +78,7 @@
     <Content Include="Customer.aspx" />
     <Content Include="CustomerDetails.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DeleteTariff.aspx" />
     <Content Include="EditCustomerDetails.aspx" />
     <Content Include="EditTariff.aspx" />
     <Content Include="Global.asax" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteTariff.aspx.cs">
+      <DependentUpon>DeleteTariff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteTariff.aspx.designer.cs">
+      <DependentUpon>DeleteTariff.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditCustomerDetails.aspx.cs">
       <DependentUpon>EditCustomerDetails.aspx</DependentUpon>

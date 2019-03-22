@@ -168,6 +168,11 @@ namespace APhoneLibrary
             return Error;
         }
 
+        public string Valid(string tariffTexts, string tariffCalls, string tariffData, string tariffNetwork, decimal tariffPrice, decimal tariffUpfront)
+        {
+            return "";
+        }
+
         public string ValidTariffTexts(string someTariffTexts)
         {
             //string variable to store the error message

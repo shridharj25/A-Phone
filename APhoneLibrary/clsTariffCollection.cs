@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace APhoneLibrary
 {
@@ -11,30 +12,9 @@ namespace APhoneLibrary
         //constructor for the class
         public clsTariffCollection()
         {
-            //create the items of test data
-            clsTariff TestItem = new clsTariff();
-            //set its properties
-            TestItem.TariffID = 1;
-            TestItem.TariffTexts = "500";
-            TestItem.TariffCalls = "Unlimited";
-            TestItem.TariffData = "20GB";
-            TestItem.TariffNetwork = "O2";
-            TestItem.TariffPrice = 30.00m;
-            TestItem.TariffUpfront = 50.00m;
-            //add the item to the test list
-            mTariffList.Add(TestItem);
-            //re initialise the object for some new data
-            TestItem = new clsTariff();
-            //set its properties
-            TestItem.TariffID = 1;
-            TestItem.TariffTexts = "2000";
-            TestItem.TariffCalls = "Unlimited";
-            TestItem.TariffData = "50GB";
-            TestItem.TariffNetwork = "Vodafone";
-            TestItem.TariffPrice = 15.99m;
-            TestItem.TariffUpfront = 10.00m;
-            //add the item to the test list
-            mTariffList.Add(TestItem);
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_TariffTable_SelectAll");
+            PopulateArray(DB);
         }
 
         public List<clsTariff> TariffList
@@ -87,6 +67,56 @@ namespace APhoneLibrary
             DB.AddParameter("@TariffUpfront", mThisTariff.TariffUpfront);
             return DB.Execute("sproc_TariffTable_Add");
 
+        }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@TariffID", mThisTariff.TariffID);
+            DB.Execute("sproc_TariffTable_Delete");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@TariffID", mThisTariff.TariffID);
+            DB.AddParameter("@TariffTexts", mThisTariff.TariffTexts);
+            DB.AddParameter("@TariffCalls", mThisTariff.TariffCalls);
+            DB.AddParameter("@TariffData", mThisTariff.TariffData);
+            DB.AddParameter("@TariffNetwork", mThisTariff.TariffNetwork);
+            DB.AddParameter("@TariffPrice", mThisTariff.TariffPrice);
+            DB.AddParameter("@TariffUpfront", mThisTariff.TariffUpfront);
+            DB.Execute("sproc_TariffTable_Update");
+        }
+
+        public void ReportByNetwork(string TariffNetwork)
+        {
+            //filters the records based on a network
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@TariffNetwork", TariffNetwork);
+            DB.Execute("sproc_TariffTable_FilterByNetwork");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //populates the array list based on the data table in the parameter db
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mTariffList = new List<clsTariff>();
+            while (Index < RecordCount)
+            {
+                clsTariff ATariff = new clsTariff();
+                ATariff.TariffTexts = Convert.ToString(DB.DataTable.Rows[Index]["TariffTexts"]);
+                ATariff.TariffCalls = Convert.ToString(DB.DataTable.Rows[Index]["TariffCalls"]);
+                ATariff.TariffData = Convert.ToString(DB.DataTable.Rows[Index]["TariffData"]);
+                ATariff.TariffNetwork = Convert.ToString(DB.DataTable.Rows[Index]["TariffNetwork"]);
+                ATariff.TariffPrice = Convert.ToDecimal(DB.DataTable.Rows[Index]["TariffPrice"]);
+                ATariff.TariffUpfront = Convert.ToDecimal(DB.DataTable.Rows[Index]["TariffUpfront"]);
+                mTariffList.Add(ATariff);
+                Index++;
+            }
         }
     }
 }

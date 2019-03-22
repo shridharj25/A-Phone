@@ -10,7 +10,7 @@
 namespace APhoneFrontEnd {
     
     
-    public partial class Edit_Tariff {
+    public partial class EditTariff {
         
         /// <summary>
         /// btnSave control.
@@ -29,24 +29,6 @@ namespace APhoneFrontEnd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
-        /// lblTariffID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTariffID;
-        
-        /// <summary>
-        /// txtTariffID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTariffID;
         
         /// <summary>
         /// lblTariffNetwork control.
@@ -155,5 +137,14 @@ namespace APhoneFrontEnd {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTariffPrice;
+        
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

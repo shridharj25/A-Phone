@@ -8,6 +8,15 @@ namespace TariffTestProject
     public class TariffTests
     {
         //Start Of Connor's Tests
+
+        //Good test data
+        string TariffTexts = "200";
+        string TariffCalls = "Unlimited";
+        string TariffData = "10GB";
+        string TariffNetwork = "O2";
+        decimal TariffPrice = 15.99m;
+        decimal TariffUpfront = 0.00m;
+
         [TestMethod]
         public void TariffInstanceOK()
         {
@@ -117,6 +126,63 @@ namespace TariffTestProject
             Int32 TariffID = 1;
             Found = ATariff.Find(TariffID);
             Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsTariff ATariff = new clsTariff();
+            String Error = "";
+            Error = ATariff.Valid(TariffTexts, TariffCalls, TariffData, TariffNetwork, TariffPrice, TariffUpfront);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsTariffCollection AllTariffs = new clsTariffCollection();
+            clsTariff TestItem = new clsTariff();
+            Int32 PrimaryKey = 0;
+            TestItem.TariffTexts = "500";
+            TestItem.TariffCalls = "Unlimited";
+            TestItem.TariffData = "20GB";
+            TestItem.TariffNetwork = "Test";
+            TestItem.TariffPrice = 30.00m;
+            TestItem.TariffUpfront = 50.00m;
+            AllTariffs.ThisTariff = TestItem;
+            PrimaryKey = AllTariffs.Add();
+            TestItem.TariffID = PrimaryKey;
+            AllTariffs.ThisTariff.Find(PrimaryKey);
+            AllTariffs.Delete();
+            Boolean Found = AllTariffs.ThisTariff.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsTariffCollection AllTariffs = new clsTariffCollection();
+            clsTariff TestItem = new clsTariff();
+            Int32 PrimaryKey = 0;
+            TestItem.TariffTexts = "500";
+            TestItem.TariffCalls = "Unlimited";
+            TestItem.TariffData = "20GB";
+            TestItem.TariffNetwork = "Test";
+            TestItem.TariffPrice = 30.00m;
+            TestItem.TariffUpfront = 50.00m;
+            AllTariffs.ThisTariff = TestItem;
+            PrimaryKey = AllTariffs.Add();
+            TestItem.TariffID = PrimaryKey;
+            TestItem.TariffTexts = "200";
+            TestItem.TariffCalls = "1000";
+            TestItem.TariffData = "10GB";
+            TestItem.TariffNetwork = "Test 2";
+            TestItem.TariffPrice = 15.00m;
+            TestItem.TariffUpfront = 25.00m;
+            AllTariffs.ThisTariff = TestItem;
+            AllTariffs.Update();
+            AllTariffs.ThisTariff.Find(PrimaryKey);
+            Assert.AreEqual(AllTariffs.ThisTariff, TestItem);
         }
 
         [TestMethod]
@@ -703,6 +769,47 @@ namespace TariffTestProject
             Error = ATariff.ValidTariffPrice(SomeTariffUpfront);
             //test to see that the result is NOT OK i.e there should be an error message
             Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ReportByNetworkMethodOK()
+        {
+            clsTariffCollection AllTariffs = new clsTariffCollection();
+            clsTariffCollection FilteredTariffs = new clsTariffCollection();
+            FilteredTariffs.ReportByNetwork("");
+            Assert.AreEqual(AllTariffs.Count, FilteredTariffs.Count);
+        }
+
+        [TestMethod]
+        public void ReportByNEtworkNoneFound()
+        {
+            clsTariffCollection FilteredTariffs = new clsTariffCollection();
+            FilteredTariffs.ReportByNetwork("xxx xxx");
+            Assert.AreEqual(0, FilteredTariffs.Count);
+        }
+
+        [TestMethod]
+        public void ReportByNetworkTestDataFound()
+        {
+            clsTariffCollection FilteredTariffs = new clsTariffCollection();
+            Boolean OK = true;
+            FilteredTariffs.ReportByNetwork("O2");
+            if (FilteredTariffs.Count == 2)
+            {
+                if (FilteredTariffs.TariffList[0].TariffID != 3)
+                {
+                    OK = false;
+                }
+                if (FilteredTariffs.TariffList[1].TariffID != 4)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
         //End Of Connor's Tests
