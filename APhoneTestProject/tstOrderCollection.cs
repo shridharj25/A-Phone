@@ -104,7 +104,7 @@ namespace APhoneTestProject
             //testing to see if the two values are the same
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
-       
+
         //public void TwoRecordsPresent()
         //{
         //    //Create an instance of the class i want to create
@@ -130,7 +130,7 @@ namespace APhoneTestProject
             TestItem.OrderMadeBy = "Jhon";
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.TotalPrice = 700;
-            //set ThisAddress to the test data
+            //set ThisOrder to the test data
             AllOrders.ThisOrder = TestItem;
             //add the record
             PrimaryKey = AllOrders.Add();
@@ -159,7 +159,7 @@ namespace APhoneTestProject
             TestItem.OrderMadeBy = "Jhon";
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.TotalPrice = 700;
-            //set ThisAddress to the test data
+            //set ThisOrder to the test data
             AllOrders.ThisOrder = TestItem;
             //add the record
             PrimaryKey = AllOrders.Add();
@@ -174,5 +174,105 @@ namespace APhoneTestProject
             //test to see that the record was not found
             Assert.IsFalse(Found);
         }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create the item of test data
+            clsOrder TestItem = new clsOrder();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.OrderID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.PhoneID = 1;
+            TestItem.TariffID = 1;
+            TestItem.OrderMadeBy = "Jhon";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.TotalPrice = 700;
+            //set ThisOrder to the test data
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of the test data
+            TestItem.OrderID = PrimaryKey;
+            //modify the test data
+            TestItem.OrderID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.PhoneID = 1;
+            TestItem.TariffID = 1;
+            TestItem.OrderMadeBy = "Rob";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.TotalPrice = 700;
+            //Set the record based on the new test data
+            AllOrders.ThisOrder = TestItem;
+            //update the record
+            AllOrders.Update();
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+        [TestMethod]
+        public void ReportByOrderMadeByOK()
+        {
+            //create an instance of the class containing unfiltered results
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create an instance of the filtered data
+            clsOrderCollection FillteredOrders = new clsOrderCollection();
+            //apply a blank string (should return all records);
+            FillteredOrders.ReportByOrderMadeBy("");
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.Count, FillteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderMadeByNoneFound()
+        {
+            //create an instance of the class containing unfiltered results
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //create an instance of the filtered data
+            clsOrderCollection FillteredOrders = new clsOrderCollection();
+            //apply a blank string (should return all records);
+            FillteredOrders.ReportByOrderMadeBy("xxxxx");
+            //test to see that the two values are the same
+            Assert.AreEqual(0, FillteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByOrderMadeFound()
+        {
+            //create an instance of the filtered data
+            clsOrderCollection FilteredAddresses = new clsOrderCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a post code that doesn't exist
+            FilteredAddresses.ReportByOrderMadeBy("yyy yyy");
+            //check that the correct number of records are found
+            if (FilteredAddresses.Count == 2)
+            {
+                //check that the first record is ID 36
+                if (FilteredAddresses.OrdersList[0].OrderID != 6)
+                {
+                    OK = false;
+                }
+                //check that the first record is ID 37
+                if (FilteredAddresses.OrdersList[1].OrderID != 7)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+        }
+
     }
+
 }
+

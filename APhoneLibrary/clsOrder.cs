@@ -158,12 +158,12 @@ namespace APhoneLibrary
             }
         }
 
-        public string Valid(string orderDate, string orderMadeBy, string totalPrice, string orderID, string customerID, string phoneID, string tariffID)
+        public string Valid(string orderDate, string orderMadeBy, string totalPrice /*string orderID, string customerID, string phoneID, string tariffID*/)
         {
             //create a string variable to store the error
             String Error = "";
             //create a temporary variable to store date values
-            DateTime DateTemp;
+           // DateTime DateTemp;
             //If the ordermadeby is blank
             if (orderMadeBy.Length == 0)
             {
@@ -175,41 +175,41 @@ namespace APhoneLibrary
             {
                 Error = Error + "The OrderMadeBy must be less than 50: ";
             }
-            try
-            {
-                //copy the OrderDate value to the DateTemp variable
-                DateTemp = Convert.ToDateTime(orderDate);
-                if (DateTemp < DateTime.Now.Date)
-                {
-                    //record the error
-                    Error = Error + "The date cannot be in the past : ";
-                }
-                //check to see if the date is greater than today's date
-                if (DateTemp > DateTime.Now.Date)
-                {
-                    //record the error
-                    Error = Error + "The date cannot be in the future : ";
-                }
-            }
-            catch
-            {
-                //record the error
-                Error = Error + "The date was not a valid date : ";
-            }
-            try
-            {
-                Int32 OrderIDTemp = Convert.ToInt32(orderID);
-                if(OrderIDTemp == 0)
-                {
-                    //restore the error
-                    Error = Error + "The OrderID cannot be blank";
-                }
+            //try
+            //{
+            //    //copy the OrderDate value to the DateTemp variable
+            //    DateTemp = Convert.ToDateTime(orderDate);
+            //    if (DateTemp < DateTime.Now.Date)
+            //    {
+            //        //record the error
+            //        Error = Error + "The date cannot be in the past : ";
+            //    }
+            //    //check to see if the date is greater than today's date
+            //    if (DateTemp > DateTime.Now.Date)
+            //    {
+            //        //record the error
+            //        Error = Error + "The date cannot be in the future : ";
+            //    }
+            //}
+            //catch
+            //{
+            //    //record the error
+            //    Error = Error + "The date was not a valid date : ";
+            //}
+            //try
+            //{
+            //    Int32 OrderIDTemp = Convert.ToInt32(orderID);
+            //    if(OrderIDTemp == 0)
+            //    {
+            //        //restore the error
+            //        Error = Error + "The OrderID cannot be blank";
+            //    }
 
-            }
-            catch
-            {
-                Error = Error + "The OrderID is not a number";
-            }
+            //}
+            //catch
+            //{
+            //    Error = Error + "The OrderID is not a number";
+            //}
             //return any error messages
             return Error;
         }

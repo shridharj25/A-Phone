@@ -13,13 +13,13 @@ namespace APhoneFrontEnd2 {
     public partial class AnOrder {
         
         /// <summary>
-        /// btnAdd control.
+        /// btnOk control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button btnOk;
         
         /// <summary>
         /// lblFirstName control.
@@ -148,12 +148,30 @@ namespace APhoneFrontEnd2 {
         protected global::System.Web.UI.WebControls.DropDownList ddlPhoneModel;
         
         /// <summary>
-        /// ddlShowTariffs control.
+        /// txtOrderMadeBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlShowTariffs;
+        protected global::System.Web.UI.WebControls.TextBox txtOrderMadeBy;
+        
+        /// <summary>
+        /// lblOrderMadeBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrderMadeBy;
+        
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

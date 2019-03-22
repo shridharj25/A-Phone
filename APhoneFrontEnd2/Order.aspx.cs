@@ -9,6 +9,8 @@ namespace APhoneFrontEnd2
 {
     public partial class Order : System.Web.UI.Page
     {
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //if this is the first time the page is displayed
@@ -62,5 +64,29 @@ namespace APhoneFrontEnd2
                 lblError.Text = "Please select a record to delete from the list";
             }
         }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            //var to store the primary key value of the record to be edited
+            Int32 OrderID;
+            //if a record has been selected from the list
+            if (lstOrders.SelectedIndex != -1)
+            {
+                //get the primary key value of the record to edit
+                OrderID = Convert.ToInt32(lstOrders.SelectedValue);
+                //store the data in the session object
+                Session["OrderID"] = OrderID;
+                //redirect to the edit page
+                Response.Redirect("AnOrder.aspx");
+            }
+            else//if no record has been selected
+            {
+                //display an error
+                lblError.Text = "Please select a record to delete from the list";
+            }
+        }
+
+     
     }
+    
 }

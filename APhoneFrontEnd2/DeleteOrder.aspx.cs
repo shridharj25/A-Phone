@@ -26,14 +26,14 @@ namespace APhoneFrontEnd2
             //delete the record
             OrderDelete();
             //redirect back to the main page
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Order.aspx");
         }
 
         //event handler for the no button
         protected void btnNo_Click(object sender, EventArgs e)
         {
             //redirect back to the main page
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Order.aspx");
         }
 
         void OrderDelete()

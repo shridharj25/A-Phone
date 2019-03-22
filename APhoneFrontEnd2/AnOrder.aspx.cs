@@ -10,18 +10,28 @@ namespace APhoneFrontEnd2
 {
     public partial class AnOrder : System.Web.UI.Page
     {
+
+        Int32 OrderID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            //get the number of the address to be processed
+            OrderID = Convert.ToInt32(Session["OrderID"]);
             //if this is the first time the page is displayed
             if (IsPostBack == false)
             {
-
+                //populate  list 
                 DisplayCustomerFirstName();
                 DisplayCustomerSurname();
                 DisplayPhoneMake();
                 DisplayPhoneModel();
+                DisplayTariffID();
 
-
+                if (OrderID != -1)
+                {
+                    //  display the current data for the record
+                    DisplayOrderDetails();
+                }
             }
 
 
@@ -77,9 +87,9 @@ namespace APhoneFrontEnd2
             //set the data source to the list of Phone in the collection
             ddlPhoneMake.DataSource = PhoneMake.PhoneList;
             //set the name of the primary key
-            ddlPhoneMake.DataValueField = "PhoneID";
+            ddlPhoneMake.DataValueField = "PhoneId";
             //set the data field to display
-            ddlPhoneMake.DataTextField = "PhoneMake";
+            ddlPhoneMake.DataTextField = "Make";
             //bind the data to the list
             ddlPhoneMake.DataBind();
         }
@@ -88,26 +98,129 @@ namespace APhoneFrontEnd2
             //create an instance of the County Collection
             APhoneLibrary.clsPhoneCollection PhoneModel = new APhoneLibrary.clsPhoneCollection();
             //set the data source to the list of Phone in the collection
-            ddlPhoneMake.DataSource = PhoneModel.PhoneList;
+            ddlPhoneModel.DataSource = PhoneModel.PhoneList;
             //set the name of the primary key
-            ddlPhoneMake.DataValueField = "PhoneID";
+            ddlPhoneModel.DataValueField = "PhoneId";
             //set the data field to display
-            ddlPhoneMake.DataTextField = "PhoneModel";
+            ddlPhoneModel.DataTextField = "Model";
             //bind the data to the list
-            ddlPhoneMake.DataBind();
+            ddlPhoneModel.DataBind();
         }
         void DisplayTariffID()
         {
             //create an instance of the County Collection
             APhoneLibrary.clsTariffCollection Tariif = new APhoneLibrary.clsTariffCollection();
             //set the data source to the list of Phone in the collection
-            ddlShowTariffs.DataSource = Tariif.TariffList;
+            ddlTariffList.DataSource = Tariif.TariffList;
             //set the name of the primary key
-            ddlShowTariffs.DataValueField = "TariffID";
+            ddlTariffList.DataValueField = "TariffID";
             //set the data field to display
-            ddlShowTariffs.DataTextField = "TariffID";
+            ddlTariffList.DataTextField = "TariffID";
             //bind the data to the list
-            ddlShowTariffs.DataBind();
+            ddlTariffList.DataBind();
+        }
+
+       void Add()
+       {
+            {
+                //create an instance of the Order
+                clsOrderCollection Order = new clsOrderCollection();
+      
+                //validate the data on the web form
+                String Error = Order.ThisOrder.Valid(txtOrderDate.Text, txtOrderMadeBy.Text, txtPrice.Text);
+                //if the data is OK then add it to the object
+                if (Error == "")
+                {
+                    //get the data entered by the user
+                    Order.ThisOrder.CustomerID = Convert.ToInt32(ddlFirstName.SelectedValue);
+                    Order.ThisOrder.CustomerID = Convert.ToInt32(ddlSurname.SelectedValue);
+                    Order.ThisOrder.PhoneID = Convert.ToInt32(ddlPhoneMake.SelectedValue);
+                    Order.ThisOrder.PhoneID = Convert.ToInt32(ddlPhoneModel.SelectedValue);
+                    Order.ThisOrder.TariffID = Convert.ToInt32(ddlTariffList.SelectedValue);
+                    Order.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
+                    Order.ThisOrder.OrderMadeBy = txtOrderMadeBy.Text;
+                    Order.ThisOrder.TotalPrice = Convert.ToDecimal(txtPrice.Text);
+                    //add the record
+                    Order.Add();
+                    //all done so redirect back to the main page
+                    Response.Redirect("Order.aspx");
+                }
+                else
+                {
+                    //report an error
+                    lblError.Text = "There were problems with the data entered " + Error;
+                }
+            }
+       }
+
+        void Update()
+        
+        {
+                //create an instance of the Order
+               APhoneLibrary.clsOrderCollection Order = new APhoneLibrary.clsOrderCollection();
+                //clsPhoneCollection Order2 = new clsPhoneCollection();
+                //validate the data on the web form
+                String Error = Order.ThisOrder.Valid(txtOrderDate.Text, txtOrderMadeBy.Text, txtPrice.Text);
+                //if the data is OK then add it to the object
+                if (Error == "")
+                {
+                    //find the record to update
+                    Order.ThisOrder.Find(OrderID);
+                    //get the data entered by the user
+                    Order.ThisOrder.CustomerID = Convert.ToInt32(ddlFirstName.SelectedValue);
+                    Order.ThisOrder.CustomerID = Convert.ToInt32(ddlSurname.SelectedValue);
+                    Order.ThisOrder.PhoneID = Convert.ToInt32(ddlPhoneMake.SelectedValue);
+                    Order.ThisOrder.PhoneID = Convert.ToInt32(ddlPhoneModel.SelectedValue);
+                    Order.ThisOrder.TariffID = Convert.ToInt32(ddlTariffList.SelectedValue);
+                    Order.ThisOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
+                    Order.ThisOrder.OrderMadeBy = txtOrderMadeBy.Text;
+                    Order.ThisOrder.TotalPrice = Convert.ToDecimal(txtPrice.Text);
+                //add the record
+                Order.Update();
+                    //all done so redirect back to the main page
+                    Response.Redirect("Order.aspx");
+                }
+                else
+                {
+                    //report an error
+                    lblError.Text = "There were problems with the data entered " + Error;
+                }
+        }
+        
+
+
+
+        void DisplayOrderDetails()
+        {
+            //create an instance of the address book
+            clsOrderCollection OrderDetails = new clsOrderCollection();
+            //find the record to Update
+            OrderDetails.ThisOrder.Find(OrderID);
+            //display the data for this record
+            txtOrderDate.Text = OrderDetails.ThisOrder.OrderDate.ToString();
+            txtPrice.Text = OrderDetails.ThisOrder.TotalPrice.ToString();
+            txtOrderMadeBy.Text = OrderDetails.ThisOrder.OrderMadeBy;
+            ddlFirstName.SelectedValue = OrderDetails.ThisOrder.CustomerID.ToString();
+            ddlSurname.SelectedValue = OrderDetails.ThisOrder.CustomerID.ToString();
+            ddlPhoneMake.SelectedValue = OrderDetails.ThisOrder.TariffID.ToString();
+            ddlPhoneModel.SelectedValue = OrderDetails.ThisOrder.TariffID.ToString();
+            ddlTariffList.SelectedValue = OrderDetails.ThisOrder.TariffID.ToString();
+
+
+        }
+
+        protected void btnOk_Click(object sender, EventArgs e)
+        {
+            if (OrderID == -1)
+            {
+                //add the new record
+                Add();
+            }
+            else
+            {
+                //update the record
+                Update();
+            }
         }
     }
 }

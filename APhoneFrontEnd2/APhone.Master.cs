@@ -13,5 +13,11 @@ namespace APhoneFrontEnd2
         {
 
         }
+
+        protected void btnOrder_Click(object sender, EventArgs e)
+        {
+            //button redirects to the order page 
+            Response.Redirect("Order.aspx");
+        }
     }
 }
